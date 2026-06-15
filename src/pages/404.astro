@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro';
+import type { SeoMeta } from '../types';
+import { NAV_LINKS } from '../constants/navigation';
+import { SITE } from '../constants/site';
+import Button from '../components/ui/Button.astro';
+import Icon from '../components/Icon.astro';
+
+const meta: SeoMeta = {
+  title: 'Página no encontrada (404) — Evolution Studio Dental',
+  description: 'La página que buscas no existe o fue movida. Vuelve al inicio o escríbenos por WhatsApp.',
+  path: '/404',
+  noindex: true,
+};
+
+// Enlaces útiles (excluye "Inicio", que ya tiene su propio botón).
+const quickLinks = NAV_LINKS.filter((l) => l.href !== '/');
+---
+
+<Layout meta={meta}>
+  <section class="relative flex min-h-[70vh] items-center overflow-hidden py-20 md:py-[120px]">
+    <img
+      src="/img/brand/evolution-mark.svg"
+      alt=""
+      class="pointer-events-none absolute -right-[160px] -top-[120px] w-[560px] opacity-[0.05]"
+    />
+    <div class="wrap relative">
+      <div class="max-w-[760px]">
+        <div class="eyebrow">Error 404</div>
+
+        <div class="mb-2 text-[clamp(96px,18vw,220px)] font-extralight leading-[0.85] tracking-[-0.04em] text-evo-mint">
+          404
+        </div>
+
+        <h1 class="m-0 mb-6 text-[clamp(32px,5vw,64px)] font-extralight leading-[1.02] tracking-[-0.03em] text-evo-graphite">
+          Esta página<br />se nos <em class="font-extralight not-italic text-evo-mint">escapó.</em>
+        </h1>
+        <p class="m-0 max-w-[520px] text-[19px] font-light leading-[1.6] text-fg-2">
+          El enlace que seguiste no existe o fue movido. No te preocupes — tu sonrisa sigue en buenas
+          manos. Vuelve al inicio o escríbenos y te ayudamos.
+        </p>
+
+        <div class="mt-9 flex flex-wrap gap-3.5">
+          <Button href="/" variant="p" arrow>Volver al inicio</Button>
+          <a
+            href={SITE.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-s"
+          >
+            <Icon name="whatsapp" size={18} strokeWidth={1.8} />Escríbenos por WhatsApp
+          </a>
+        </div>
+
+        <div class="mt-12 border-t border-line pt-8">
+          <div class="mb-4 text-[11px] font-medium uppercase tracking-[0.24em] text-evo-mint-700">
+            O explora el studio
+          </div>
+          <div class="flex flex-wrap gap-2.5">
+            {
+              quickLinks.map((link) => (
+                <a
+                  href={link.href}
+                  class="inline-flex items-center gap-2 rounded-full border border-line bg-white px-4 py-2.5 text-sm font-medium text-fg transition-all duration-200 hover:-translate-y-px hover:border-evo-mint hover:text-evo-mint-700"
+                >
+                  {link.label}
+                  <Icon name="arrow-right" size={14} strokeWidth={2} />
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
