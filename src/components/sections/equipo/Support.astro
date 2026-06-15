@@ -1,0 +1,44 @@
+---
+import { EQ_SUPPORT } from '../../../constants/equipo-page';
+---
+
+<section class="bg-evo-bone py-20 md:py-[130px]">
+  <div class="wrap">
+    <div class="max-w-[720px]">
+      <div class="eyebrow">Equipo de apoyo</div>
+      <h2 class="h-section">El studio funciona<br />gracias a <em>todos.</em></h2>
+      <p class="lead mt-6">
+        Detrás de cada tratamiento hay personas que te reciben, te acompañan y se aseguran de que cada
+        detalle salga bien.
+      </p>
+    </div>
+    <div class="mt-13 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        EQ_SUPPORT.map((m) => (
+          <article class="group overflow-hidden rounded-[26px] border border-line bg-white transition-all duration-300 hover:-translate-y-1 hover:border-evo-mint hover:shadow-[0_22px_44px_-18px_rgba(46,86,79,0.18)]">
+            <div class="relative aspect-[5/4] overflow-hidden" style={`background: ${m.gradient};`}>
+              <img
+                src={m.photo}
+                alt={`${m.name} — ${m.role}`}
+                width="600"
+                height="480"
+                loading="lazy"
+                decoding="async"
+                class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-evo-mint-900/35 via-transparent to-transparent"></div>
+              <div class="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-[7px] text-[10.5px] font-medium uppercase tracking-[0.12em] text-evo-mint-700">
+                {m.dept}
+              </div>
+            </div>
+            <div class="px-6 pb-[26px] pt-[22px]">
+              <h4 class="m-0 mb-1 text-xl font-normal tracking-[-0.015em] text-evo-graphite">{m.name}</h4>
+              <div class="text-[13px] font-medium text-evo-mint-700">{m.role}</div>
+              <p class="mb-0 mt-3.5 text-[13.5px] leading-[1.55] text-fg-2">{m.text}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

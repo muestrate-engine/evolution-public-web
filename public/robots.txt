@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Recursos internos del design-system (no indexar)
+Disallow: /deliverables/
+Disallow: /preview/
+Disallow: /design-system.html
+
+Sitemap: https://evolutiondental.pe/sitemap-index.xml

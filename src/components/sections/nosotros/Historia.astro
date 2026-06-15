@@ -1,0 +1,29 @@
+---
+import { MILESTONES } from '../../../constants/nosotros';
+import { IMAGES } from '../../../constants/images';
+---
+
+<section class="bg-evo-mint-50 py-20 md:py-[120px]">
+  <div class="wrap grid grid-cols-1 items-start gap-[72px] lg:grid-cols-[5fr_7fr]">
+    <div class="relative aspect-[9/11] max-h-[420px] overflow-hidden rounded-[32px] shadow-[0_30px_60px_-24px_rgba(46,86,79,0.25)] lg:sticky lg:top-[110px] lg:max-h-none">
+      <img src={IMAGES.nosotrosHistoria} alt="La historia de Evolution" loading="lazy" decoding="async" class="h-full w-full object-cover" />
+    </div>
+    <div>
+      <div class="eyebrow">Nuestra historia</div>
+      <h2 class="h-section mb-12">Doce años<br /><em>construyendo confianza.</em></h2>
+      <div class="flex flex-col">
+        {
+          MILESTONES.map((m) => (
+            <div class="grid grid-cols-1 gap-2 border-b border-line py-7 last:border-b-0 sm:grid-cols-[92px_1fr] sm:gap-7">
+              <div class="text-[28px] font-light leading-none tracking-[-0.02em] text-evo-mint-600">{m.year}</div>
+              <div>
+                <h3 class="m-0 mb-2 text-2xl font-normal tracking-[-0.015em] text-evo-graphite">{m.title}</h3>
+                <p class="m-0 text-base leading-[1.6] text-fg-2">{m.text}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

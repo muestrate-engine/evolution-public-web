@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { tratamientosSeo } from '../seo';
+import { TR_CATEGORIES, TR_FAQ } from '../constants/tratamientos-page';
+import Intro from '../components/sections/tratamientos/Intro.astro';
+import Categories from '../components/sections/tratamientos/Categories.astro';
+import CategorySection from '../components/sections/tratamientos/CategorySection.astro';
+import Process from '../components/sections/tratamientos/Process.astro';
+import Cases from '../components/sections/tratamientos/Cases.astro';
+import Faq from '../components/sections/tratamientos/Faq.astro';
+import Reviews from '../components/sections/home/Reviews.astro';
+import Cta from '../components/sections/Cta.astro';
+---
+
+<Layout meta={{ ...tratamientosSeo, faq: TR_FAQ }}>
+  <Intro />
+  <Categories />
+  {TR_CATEGORIES.map((data) => <CategorySection data={data} />)}
+  <Process />
+  <Cases />
+  <Faq />
+  <Reviews />
+  <Cta />
+</Layout>

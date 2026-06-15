@@ -1,0 +1,33 @@
+---
+import { SITE } from '../../constants/site';
+
+/** Mapa real de Google Maps embebido (iframe), reutilizable. */
+interface Props {
+  class?: string;
+}
+const { class: className = 'min-h-[480px]' } = Astro.props;
+---
+
+<div class={`relative overflow-hidden rounded-[32px] border border-line ${className}`}>
+  <iframe
+    title={`Ubicación de ${SITE.name} en Google Maps`}
+    src={SITE.address.embedUrl}
+    class="absolute inset-0 h-full w-full"
+    style="border:0"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    allowfullscreen></iframe>
+
+  <!-- Etiqueta de marca (no bloquea la interacción con el mapa) -->
+  <div
+    class="pointer-events-none absolute left-4 top-4 flex max-w-[calc(100%-2rem)] items-center gap-3 rounded-[16px] bg-white/95 px-4 py-3 shadow-[0_18px_36px_-16px_rgba(46,86,79,0.3)] backdrop-blur-sm sm:left-5 sm:top-5"
+  >
+    <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-evo-mint-50 p-1.5">
+      <img src="/img/brand/evolution-mark.svg" alt="" class="w-full" />
+    </div>
+    <div class="min-w-0">
+      <div class="truncate text-[15px] font-medium text-fg">{SITE.name}</div>
+      <div class="truncate text-[12.5px] text-fg-2">{SITE.address.street}, {SITE.address.district}</div>
+    </div>
+  </div>
+</div>

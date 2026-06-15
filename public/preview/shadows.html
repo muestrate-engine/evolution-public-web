@@ -1,0 +1,22 @@
+<!doctype html>
+<!-- @dsCard group="Spacing" name="Shadows" subtitle="Mint-tinted, soft elevation" viewport="700x200" -->
+<html><head><meta charset="utf-8"/>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  body { margin:0; padding:32px 28px; background: var(--bg); }
+  h4 { margin:0 0 22px; font-weight:500; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color: var(--evo-mint-700); }
+  .row { display:flex; gap: 28px; }
+  .card { background: white; border-radius: 20px; width: 130px; height: 90px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; }
+  .name { font-size: 11px; font-family: ui-monospace, monospace; color: var(--fg-2); }
+  .v { font-size: 10px; color: var(--fg-3); }
+</style></head>
+<body>
+  <h4>Shadow system · mint-tinted, soft</h4>
+  <div class="row">
+    <div class="card" style="box-shadow: 0 1px 2px rgba(46,86,79,0.04)"><div class="name">xs</div><div class="v">whisper</div></div>
+    <div class="card" style="box-shadow: 0 2px 6px rgba(46,86,79,0.06), 0 1px 2px rgba(46,86,79,0.04)"><div class="name">sm</div><div class="v">resting</div></div>
+    <div class="card" style="box-shadow: 0 8px 24px -8px rgba(46,86,79,0.12), 0 2px 6px rgba(46,86,79,0.05)"><div class="name">md ★</div><div class="v">hover</div></div>
+    <div class="card" style="box-shadow: 0 24px 48px -16px rgba(46,86,79,0.18), 0 4px 10px rgba(46,86,79,0.06)"><div class="name">lg</div><div class="v">elevated</div></div>
+    <div class="card" style="box-shadow: 0 0 0 6px rgba(152,202,192,0.18)"><div class="name">glow</div><div class="v">focus</div></div>
+  </div>
+</body></html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Buttons" subtitle="Primary / secondary / ghost — rest + hover" viewport="700x260" -->
+<html><head><meta charset="utf-8"/>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  body { margin:0; padding:32px; background: var(--bg); display:flex; flex-direction:column; gap: 18px; }
+  .row { display:flex; gap: 14px; align-items:center; flex-wrap: wrap; }
+  .label { font-size: 11px; letter-spacing: 0.18em; text-transform:uppercase; color: var(--evo-mint-700); width: 84px; flex-shrink:0; }
+  button { font-family: var(--font-sans); font-size: 15px; font-weight: 500; padding: 14px 28px; border-radius: 999px; border: none; cursor: pointer; transition: all 240ms cubic-bezier(0.34,1.2,0.64,1); }
+  .primary { background: var(--evo-mint); color: #1B3530; }
+  .primary.hover { background: var(--evo-mint-500); transform: translateY(-1px); box-shadow: 0 8px 24px -8px rgba(46,86,79,0.25); }
+  .secondary { background: transparent; color: var(--evo-mint-700); border: 1px solid var(--evo-mint-300); }
+  .secondary.hover { background: var(--evo-mint-50); border-color: var(--evo-mint); }
+  .ghost { background: transparent; color: var(--fg); padding: 14px 18px; }
+  .ghost.hover { color: var(--evo-mint-700); }
+</style></head>
+<body>
+  <div class="row"><div class="label">Primary</div>
+    <button class="primary">Agenda tu cita</button>
+    <button class="primary hover">Agenda tu cita</button>
+  </div>
+  <div class="row"><div class="label">Secondary</div>
+    <button class="secondary">Ver servicios</button>
+    <button class="secondary hover">Ver servicios</button>
+  </div>
+  <div class="row"><div class="label">Ghost</div>
+    <button class="ghost">Conversemos →</button>
+    <button class="ghost hover">Conversemos →</button>
+  </div>
+</body></html>

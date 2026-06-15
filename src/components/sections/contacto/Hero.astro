@@ -1,0 +1,59 @@
+---
+import { SITE } from '../../../constants/site';
+import Icon from '../../Icon.astro';
+
+const cards = [
+  { wa: true, icon: 'whatsapp', label: 'WhatsApp', value: SITE.whatsapp, sub: 'Respuesta en menos de 30 minutos', href: SITE.whatsappUrl, external: true },
+  { wa: false, icon: 'phone', label: 'Teléfono', value: SITE.phone, sub: 'Lunes a sábado, 9:00 – 19:00', href: SITE.phoneHref, external: false },
+  { wa: false, icon: 'mail', label: 'Email', value: SITE.email, sub: 'Para consultas formales', href: `mailto:${SITE.email}`, external: false },
+];
+---
+
+<section class="relative overflow-hidden py-20 pb-16">
+  <img
+    src="/img/brand/evolution-mark.svg"
+    alt=""
+    class="pointer-events-none absolute -right-[180px] -top-[120px] w-[560px] opacity-[0.06]"
+  />
+  <div class="wrap">
+    <div class="max-w-[900px]">
+      <div class="eyebrow">Contacto</div>
+      <h1 class="m-0 mb-6 text-[clamp(48px,7vw,104px)] font-extralight leading-[0.96] tracking-[-0.035em] text-evo-graphite">
+        Hablemos de<br />tu <em class="font-extralight not-italic text-evo-mint">sonrisa.</em>
+      </h1>
+      <p class="m-0 max-w-[600px] text-[22px] font-light leading-[1.55] text-fg-2">
+        Escríbenos, llámanos o pásate por el studio. Respondemos rápido y sin tecnicismos — estés donde
+        estés en tu decisión, te ayudamos a dar el siguiente paso.
+      </p>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 gap-[18px] lg:grid-cols-3">
+      {
+        cards.map((c) => (
+          <a
+            href={c.href}
+            target={c.external ? '_blank' : undefined}
+            rel={c.external ? 'noopener noreferrer' : undefined}
+            class="group flex items-start gap-[18px] rounded-[24px] border border-line bg-white px-[30px] py-7 transition-all duration-300 hover:-translate-y-[3px] hover:border-evo-mint hover:shadow-[0_20px_42px_-20px_rgba(46,86,79,0.2)]"
+          >
+            <div
+              class:list={[
+                'flex h-[46px] w-[46px] flex-shrink-0 items-center justify-center rounded-[14px]',
+                c.wa
+                  ? 'border border-evo-mint bg-evo-mint text-evo-mint-900'
+                  : 'border border-evo-mint-100 bg-evo-mint-50 text-evo-mint-700',
+              ]}
+            >
+              <Icon name={c.icon} size={22} strokeWidth={1.7} />
+            </div>
+            <div>
+              <div class="mb-[7px] text-[11px] font-medium uppercase tracking-[0.2em] text-evo-mint-700">{c.label}</div>
+              <div class="text-[18px] tracking-[-0.01em] text-fg">{c.value}</div>
+              <div class="mt-1 text-[13px] leading-[1.5] text-fg-2">{c.sub}</div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

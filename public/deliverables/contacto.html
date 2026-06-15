@@ -1,0 +1,480 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Contacto (página)" subtitle="Página Contacto — hero, info, formulario, mapa, indicaciones, horarios, FAQ, CTA" viewport="1280x800" -->
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Contacto — Evolution Studio Dental</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<link rel="stylesheet" href="site.css"/>
+<style>
+  /* ====== CONTACTO — page-specific sections ====== */
+
+  /* 1. HERO PRINCIPAL */
+  .ct-hero { padding: 80px 0 64px; overflow: hidden; }
+  .ct-hero .top { max-width: 900px; }
+  .ct-hero h1 { font-size: clamp(48px, 7vw, 104px); font-weight: 200; letter-spacing: -0.035em; line-height: 0.96; margin: 0 0 26px; color: var(--evo-graphite); }
+  .ct-hero h1 em { font-style: italic; color: var(--evo-mint); font-weight: 200; }
+  .ct-hero p.intro { font-size: 22px; font-weight: 300; line-height: 1.55; color: var(--fg-2); margin: 0; max-width: 600px; }
+  .ct-hero .quick { margin-top: 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .ct-hero .qc { display: flex; gap: 18px; align-items: flex-start; background: white; border: 1px solid var(--line); border-radius: 24px; padding: 28px 30px; transition: transform 280ms, box-shadow 280ms, border-color 280ms; }
+  .ct-hero .qc:hover { transform: translateY(-3px); box-shadow: 0 20px 42px -20px rgba(46,86,79,0.2); border-color: var(--evo-mint); }
+  .ct-hero .qc .ic { width: 46px; height: 46px; border-radius: 14px; background: var(--evo-mint-50); border: 1px solid var(--evo-mint-100); color: var(--evo-mint-700); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .ct-hero .qc.wa .ic { background: var(--evo-mint); border-color: var(--evo-mint); color: var(--evo-mint-900); }
+  .ct-hero .qc .lbl { font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--evo-mint-700); margin-bottom: 7px; }
+  .ct-hero .qc .v { font-size: 18px; font-weight: 400; color: var(--fg); letter-spacing: -0.01em; }
+  .ct-hero .qc .s { font-size: 13px; color: var(--fg-2); margin-top: 4px; line-height: 1.5; }
+
+  /* 2. FORMULARIO + ASIDE */
+  .ctform { padding: 50px 0 120px; }
+  .ctform .layout { display: grid; grid-template-columns: 7fr 5fr; gap: 28px; align-items: start; }
+  .form-card { background: white; border: 1px solid var(--line); border-radius: 32px; padding: 48px 50px; }
+  .form-card .eyebrow { margin-bottom: 16px; }
+  .form-card h2 { font-size: 34px; font-weight: 300; letter-spacing: -0.02em; line-height: 1.05; margin: 0 0 10px; color: var(--evo-graphite); }
+  .form-card h2 em { font-style: italic; color: var(--evo-mint); }
+  .form-card .sub { font-size: 15px; color: var(--fg-2); line-height: 1.55; margin: 0 0 34px; max-width: 460px; }
+  .fgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .field { display: flex; flex-direction: column; gap: 9px; }
+  .field.full { grid-column: 1 / -1; }
+  .field label { font-size: 12px; font-weight: 500; letter-spacing: 0.06em; color: var(--fg); text-transform: uppercase; }
+  .field label .req { color: var(--evo-mint-600); }
+  .field input, .field select, .field textarea { font-family: var(--font-sans); font-size: 15px; color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; transition: border-color 200ms, box-shadow 200ms, background 200ms; width: 100%; }
+  .field textarea { resize: vertical; min-height: 124px; line-height: 1.55; }
+  .field input::placeholder, .field textarea::placeholder { color: var(--fg-3); }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--evo-mint); background: white; box-shadow: 0 0 0 4px var(--evo-mint-50); }
+  .field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235E9D90' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 44px; cursor: pointer; }
+  .form-foot { margin-top: 28px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .consent { display: flex; gap: 11px; align-items: flex-start; font-size: 12.5px; color: var(--fg-2); line-height: 1.5; max-width: 380px; }
+  .consent input { width: 18px; height: 18px; margin-top: 1px; accent-color: var(--evo-mint-600); flex-shrink: 0; }
+  .form-card .note { margin-top: 22px; font-size: 12.5px; color: var(--fg-3); display: flex; gap: 8px; align-items: center; }
+
+  .aside { display: flex; flex-direction: column; gap: 20px; }
+  .aside .panel { border-radius: 28px; padding: 34px 34px; }
+  .aside .hours { background: var(--evo-graphite); color: white; }
+  .aside .hours .eyebrow { color: var(--evo-mint); }
+  .aside .hours .eyebrow::before { background: var(--evo-mint); }
+  .aside .hours h3 { font-size: 24px; font-weight: 300; letter-spacing: -0.015em; margin: 0 0 22px; color: white; }
+  .aside .hours .row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .aside .hours .row:last-of-type { border-bottom: none; }
+  .aside .hours .row .d { font-size: 15px; color: rgba(255,255,255,0.92); }
+  .aside .hours .row .h { font-size: 14px; color: var(--evo-mint-300); font-weight: 500; letter-spacing: 0.01em; }
+  .aside .hours .row.closed .h { color: rgba(255,255,255,0.4); }
+  .aside .hours .status { margin-top: 22px; display: inline-flex; align-items: center; gap: 9px; padding: 10px 16px; border-radius: 999px; background: rgba(152,202,192,0.14); border: 1px solid rgba(152,202,192,0.3); font-size: 13px; color: var(--evo-mint-300); font-weight: 500; }
+  .aside .hours .status .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--evo-mint); box-shadow: 0 0 0 4px rgba(152,202,192,0.25); }
+  .aside .addr { background: var(--evo-mint-50); border: 1px solid var(--evo-mint-100); }
+  .aside .addr .eyebrow { margin-bottom: 14px; }
+  .aside .addr .line { font-size: 20px; font-weight: 400; color: var(--evo-graphite); letter-spacing: -0.01em; line-height: 1.4; }
+  .aside .addr .line small { display: block; font-size: 14px; color: var(--fg-2); margin-top: 4px; }
+  .aside .addr .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+  .aside .addr .tags span { font-size: 12px; padding: 6px 12px; border-radius: 999px; background: white; border: 1px solid var(--evo-mint-100); color: var(--evo-mint-700); font-weight: 500; }
+
+  /* 3. MAPA + INDICACIONES */
+  .ct-map { padding: 120px 0; background: var(--evo-cream); position: relative; overflow: hidden; }
+  .ct-map::before { content: ""; position: absolute; top: -12%; left: -8%; width: 480px; height: 480px; background: radial-gradient(circle, rgba(152,202,192,0.3), transparent 62%); pointer-events: none; }
+  .ct-map .head { position: relative; margin-bottom: 52px; max-width: 720px; }
+  .ct-map .layout { display: grid; grid-template-columns: 7fr 5fr; gap: 28px; align-items: stretch; position: relative; }
+  .ct-map .map { min-height: 560px; }
+  .directions { display: flex; flex-direction: column; gap: 18px; }
+  .dir-card { background: white; border: 1px solid var(--line); border-radius: 24px; padding: 26px 28px; display: flex; gap: 18px; align-items: flex-start; }
+  .dir-card .ic { width: 46px; height: 46px; border-radius: 14px; background: var(--evo-mint-50); border: 1px solid var(--evo-mint-100); color: var(--evo-mint-700); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .dir-card h4 { font-size: 17px; font-weight: 500; letter-spacing: -0.01em; margin: 0 0 6px; color: var(--evo-graphite); }
+  .dir-card p { font-size: 14px; color: var(--fg-2); line-height: 1.55; margin: 0; }
+  .dir-card.cta-dir { background: var(--evo-graphite); border-color: var(--evo-graphite); flex-direction: column; gap: 16px; }
+  .dir-card.cta-dir h4 { color: white; font-size: 20px; font-weight: 300; }
+  .dir-card.cta-dir p { color: rgba(255,255,255,0.65); }
+
+  /* 4. FAQ */
+  .faq { padding: 120px 0; background: var(--bg); }
+  .faq .layout { display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: start; }
+  .faq .intro-col { position: sticky; top: 110px; }
+  .faq .intro-col p { margin-top: 24px; }
+  .faq .intro-col .help { margin-top: 30px; background: var(--evo-mint-50); border: 1px solid var(--evo-mint-100); border-radius: 24px; padding: 28px 30px; }
+  .faq .intro-col .help .t { font-size: 16px; color: var(--evo-graphite); line-height: 1.5; }
+  .faq .intro-col .help .t strong { font-weight: 500; }
+  .faq .intro-col .help a { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; color: var(--evo-mint-700); font-size: 14px; font-weight: 500; }
+  .qa-list { display: flex; flex-direction: column; }
+  .qa { border-bottom: 1px solid var(--line); }
+  .qa:first-child { border-top: 1px solid var(--line); }
+  .qa button { width: 100%; background: none; border: none; cursor: pointer; padding: 28px 4px; display: flex; align-items: center; justify-content: space-between; gap: 24px; text-align: left; font-family: var(--font-sans); }
+  .qa button .q { font-size: 20px; font-weight: 400; letter-spacing: -0.015em; color: var(--evo-graphite); transition: color 200ms; }
+  .qa button:hover .q { color: var(--evo-mint-700); }
+  .qa .sign { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 280ms cubic-bezier(0.34,1.2,0.64,1); color: var(--evo-mint-700); }
+  .qa.open .sign { background: var(--evo-mint); border-color: var(--evo-mint); color: var(--evo-mint-900); transform: rotate(135deg); }
+  .qa .ans { max-height: 0; overflow: hidden; transition: max-height 360ms ease; }
+  .qa.open .ans { max-height: 280px; }
+  .qa .ans p { font-size: 16px; line-height: 1.65; color: var(--fg-2); margin: 0 0 28px; max-width: 600px; padding-right: 40px; }
+
+  @media (max-width: 1024px) {
+    .ct-hero .quick { grid-template-columns: 1fr; }
+    .ctform .layout { grid-template-columns: 1fr; }
+    .ct-map .layout { grid-template-columns: 1fr; }
+    .ct-map .map { min-height: 420px; }
+    .faq .layout { grid-template-columns: 1fr; gap: 40px; }
+    .faq .intro-col { position: relative; top: 0; }
+  }
+  @media (max-width: 600px) {
+    .form-card { padding: 34px 26px; }
+    .fgrid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================ HEADER ============================ -->
+<header class="site">
+  <div class="wrap row">
+    <a href="website.html" class="brand">
+      <img src="../assets/evolution-mark.svg" alt=""/>
+      <div>
+        <div class="w">evolution</div>
+        <div class="s">studio dental</div>
+      </div>
+    </a>
+    <nav class="main">
+      <a href="nosotros.html">Nosotros</a>
+      <a href="tratamientos.html">Tratamientos</a>
+      <a href="equipo.html">Equipo</a>
+      <a href="testimonios.html">Testimonios</a>
+      <a href="contacto.html" style="color:var(--evo-mint-700);">Contacto</a>
+    </nav>
+    <div class="hdr-right">
+      <span class="hdr-phone">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +51 999 000 000
+      </span>
+      <a href="#form" class="hdr-cta"><span class="dot"></span>Agenda tu cita</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ 1. HERO PRINCIPAL ============================ -->
+<section class="ct-hero">
+  <img class="water" src="../assets/evolution-mark.svg" alt="" style="position:absolute;right:-180px;top:-120px;width:560px;opacity:0.06;pointer-events:none;"/>
+  <div class="wrap">
+    <div class="top">
+      <div class="eyebrow">Contacto</div>
+      <h1>Hablemos de<br/>tu <em>sonrisa.</em></h1>
+      <p class="intro">Escríbenos, llámanos o pásate por el studio. Respondemos rápido y sin tecnicismos — estés donde estés en tu decisión, te ayudamos a dar el siguiente paso.</p>
+    </div>
+    <div class="quick">
+      <a class="qc wa" href="#">
+        <div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg></div>
+        <div>
+          <div class="lbl">WhatsApp</div>
+          <div class="v">+51 999 000 000</div>
+          <div class="s">Respuesta en menos de 30 minutos</div>
+        </div>
+      </a>
+      <a class="qc" href="tel:+51999000000">
+        <div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div>
+          <div class="lbl">Teléfono</div>
+          <div class="v">+51 999 000 000</div>
+          <div class="s">Lunes a sábado, 9:00 – 19:00</div>
+        </div>
+      </a>
+      <a class="qc" href="mailto:hola@evolutiondental.pe">
+        <div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+        <div>
+          <div class="lbl">Email</div>
+          <div class="v">hola@evolutiondental.pe</div>
+          <div class="s">Para consultas formales</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 2. FORMULARIO + HORARIOS + DIRECCION ============================ -->
+<section class="ctform" id="form">
+  <div class="wrap layout">
+
+    <div class="form-card">
+      <div class="eyebrow">Escríbenos</div>
+      <h2>Cuéntanos qué<br/>necesitas <em>y te contactamos.</em></h2>
+      <p class="sub">Completa el formulario y te respondemos el mismo día. Sin compromiso — solo conversamos para entender cómo podemos ayudarte.</p>
+      <form onsubmit="return false;">
+        <div class="fgrid">
+          <div class="field">
+            <label for="nombre">Nombre <span class="req">*</span></label>
+            <input id="nombre" type="text" placeholder="Tu nombre completo"/>
+          </div>
+          <div class="field">
+            <label for="tel">Teléfono / WhatsApp <span class="req">*</span></label>
+            <input id="tel" type="tel" placeholder="+51 999 000 000"/>
+          </div>
+          <div class="field">
+            <label for="email">Correo electrónico</label>
+            <input id="email" type="email" placeholder="tucorreo@ejemplo.com"/>
+          </div>
+          <div class="field">
+            <label for="trat">¿Qué te interesa?</label>
+            <select id="trat">
+              <option>Aún no lo sé / orientación general</option>
+              <option>Limpieza y prevención</option>
+              <option>Diseño de sonrisa / carillas</option>
+              <option>Ortodoncia / alineadores</option>
+              <option>Implantes dentales</option>
+              <option>Blanqueamiento</option>
+              <option>Endodoncia</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="msg">Tu mensaje</label>
+            <textarea id="msg" placeholder="Cuéntanos qué buscas o qué te preocupa. Mientras más nos digas, mejor te orientamos."></textarea>
+          </div>
+        </div>
+        <div class="form-foot">
+          <label class="consent">
+            <input type="checkbox"/>
+            <span>Acepto que Evolution use mis datos para contactarme sobre mi consulta, según su política de privacidad.</span>
+          </label>
+          <button type="submit" class="btn btn-p">Enviar mensaje <span class="arr"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></button>
+        </div>
+        <div class="note">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-7-8-13a8 8 0 0 1 16 0c0 6-8 13-8 13Z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Tus datos están seguros. Nunca compartimos tu información con terceros.
+        </div>
+      </form>
+    </div>
+
+    <div class="aside">
+      <div class="panel hours">
+        <div class="eyebrow">Horarios de atención</div>
+        <h3>Cuándo estamos</h3>
+        <div class="row"><span class="d">Lunes a Viernes</span><span class="h">9:00 – 19:00</span></div>
+        <div class="row"><span class="d">Sábado</span><span class="h">9:00 – 14:00</span></div>
+        <div class="row closed"><span class="d">Domingo</span><span class="h">Cerrado</span></div>
+        <div class="row"><span class="d">Feriados</span><span class="h">Cita previa</span></div>
+        <div class="status"><span class="dot"></span>Abierto ahora · cierra a las 19:00</div>
+      </div>
+      <div class="panel addr">
+        <div class="eyebrow">Dirección del studio</div>
+        <div class="line">Av. Primavera 1234<small>San Borja, Lima 15041 — Perú</small></div>
+        <div class="tags"><span>Estacionamiento cerca</span><span>A 1 cuadra del parque</span><span>Acceso para sillas de ruedas</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================ 3. MAPA + INDICACIONES ============================ -->
+<section class="ct-map">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Cómo llegar</div>
+      <h2 class="h-section">A pocos pasos del<br/>parque <em>San Borja Sur.</em></h2>
+    </div>
+    <div class="layout">
+      <div class="map">
+        <div class="map-grid-bg"></div>
+        <div class="park"></div>
+        <div class="roads">
+          <div class="road r1"></div>
+          <div class="road r2"></div>
+          <div class="road r3"></div>
+        </div>
+        <div class="pin-wrap">
+          <div class="pulse"></div>
+          <div class="pin"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/></svg></div>
+        </div>
+        <div class="info-bubble">
+          <div class="logo-mini"><img src="../assets/evolution-mark.svg" alt=""/></div>
+          <div>
+            <div class="nm">Evolution Studio Dental</div>
+            <div class="ad">Av. Primavera 1234, San Borja</div>
+          </div>
+          <div class="open">Abierto</div>
+        </div>
+      </div>
+      <div class="directions">
+        <div class="dir-card">
+          <div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <div>
+            <h4>En auto</h4>
+            <p>Estacionamiento público a media cuadra sobre Av. Primavera. También hay parqueo en la calle frente al studio.</p>
+          </div>
+        </div>
+        <div class="dir-card">
+          <div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="16" rx="2"/><path d="M4 11h16M8 19l-2 2M16 19l2 2M8 7h.01M16 7h.01"/></svg></div>
+          <div>
+            <h4>En transporte público</h4>
+            <p>Paradero "Parque San Borja Sur" a 3 minutos caminando. Múltiples rutas pasan por Av. San Borja Sur y Av. Aviación.</p>
+          </div>
+        </div>
+        <div class="dir-card">
+          <div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88l6.36-2.12z"/></svg></div>
+          <div>
+            <h4>Puntos de referencia</h4>
+            <p>Frente al parque San Borja Sur, junto a dos cafeterías. Edificio con fachada blanca y el logo de Evolution en la entrada.</p>
+          </div>
+        </div>
+        <a class="dir-card cta-dir" href="#">
+          <h4>Abrir en Google Maps</h4>
+          <p>Te llevamos paso a paso hasta la puerta del studio.</p>
+          <span class="btn btn-w" style="align-self:flex-start;">Cómo llegar →</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 4. PREGUNTAS FRECUENTES ============================ -->
+<section class="faq">
+  <div class="wrap layout">
+    <div class="intro-col">
+      <div class="eyebrow">Preguntas frecuentes</div>
+      <h2 class="h-section">Antes de<br/><em>escribirnos.</em></h2>
+      <p class="lead">Resolvemos aquí las dudas más comunes. Si la tuya no está, escríbenos por WhatsApp y te respondemos al toque.</p>
+      <div class="help">
+        <div class="t"><strong>¿No encuentras tu respuesta?</strong><br/>Escríbenos directo y una persona real te contesta.</div>
+        <a href="#"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg>Escríbenos por WhatsApp</a>
+      </div>
+    </div>
+    <div class="qa-list">
+      <div class="qa open">
+        <button type="button">
+          <span class="q">¿La primera evaluación tiene costo?</span>
+          <span class="sign"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="ans"><p>No. La primera valoración es sin costo y sin compromiso. Revisamos tu caso, conversamos y te entregamos un plan claro con precios — tú decides si continúas.</p></div>
+      </div>
+      <div class="qa">
+        <button type="button">
+          <span class="q">¿Cómo agendo una cita?</span>
+          <span class="sign"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="ans"><p>La forma más rápida es por WhatsApp: te respondemos en menos de 30 minutos en horario de atención. También puedes llamarnos, escribir por el formulario o pasar directamente por el studio.</p></div>
+      </div>
+      <div class="qa">
+        <button type="button">
+          <span class="q">¿Aceptan pagos en cuotas?</span>
+          <span class="sign"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="ans"><p>Sí. Ofrecemos planes en cuotas sin intereses para la mayoría de tratamientos, además de pago con tarjeta, transferencia y efectivo. Te explicamos las opciones antes de empezar.</p></div>
+      </div>
+      <div class="qa">
+        <button type="button">
+          <span class="q">Tengo miedo al dentista. ¿Pueden ayudarme?</span>
+          <span class="sign"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="ans"><p>Es justo lo que mejor hacemos. Nuestro programa "Sonríe sin miedo" trabaja a tu ritmo, con sedación consciente si la necesitas y pausas cuando lo pidas. Nunca avanzamos sin tu permiso.</p></div>
+      </div>
+      <div class="qa">
+        <button type="button">
+          <span class="q">¿Atienden urgencias?</span>
+          <span class="sign"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="ans"><p>Sí. Si tienes dolor o una emergencia dental, escríbenos por WhatsApp indicando "urgencia" y priorizamos tu atención dentro del horario de atención.</p></div>
+      </div>
+      <div class="qa">
+        <button type="button">
+          <span class="q">¿Dónde quedan y hay estacionamiento?</span>
+          <span class="sign"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="ans"><p>Estamos en Av. Primavera 1234, San Borja, frente al parque San Borja Sur. Hay estacionamiento público a media cuadra y parqueo en la calle frente al studio.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 5. CTA FINAL ============================ -->
+<section class="cta" id="cta">
+  <div class="wrap inner">
+    <div>
+      <div class="eyebrow">Demos el primer paso</div>
+      <h2>Tu cita está a un<br/><em>"hola"</em> de distancia.</h2>
+      <p class="lead" style="margin-top:32px;max-width:540px;">Escríbenos por WhatsApp y agendamos tu valoración sin costo. Sin compromiso, sin presión, sin sorpresas en el precio. Te respondemos en minutos, de lunes a sábado.</p>
+      <div style="margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="#" class="btn btn-p">Escribir por WhatsApp <span class="arr"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></a>
+        <a href="#form" class="btn" style="background:transparent;color:white;border:1px solid rgba(255,255,255,0.2);">Llenar el formulario</a>
+      </div>
+    </div>
+    <div class="cta-card">
+      <div class="lbl">Reserva express</div>
+      <div class="nm">Valoración sin costo<br/>+ plan personalizado</div>
+      <div class="row"><div class="ic"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>Respuesta en menos de 30 min</div>
+      <div class="row"><div class="ic"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>Sin costo de evaluación</div>
+      <div class="row"><div class="ic"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.6a5.5 5.5 0 0 0-7.78 0L12 5.66l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>Atendido por una persona real</div>
+      <a href="#" class="btn btn-w" style="margin-top:8px;justify-content:center;">Reservar ahora</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="site">
+  <div class="wrap">
+    <div class="top">
+      <div class="brand-foot">
+        <div class="lockup">
+          <img src="../assets/evolution-mark.svg" alt=""/>
+          <div>
+            <div class="w">evolution</div>
+            <div class="s">studio dental</div>
+          </div>
+        </div>
+        <p>Cuidamos tu sonrisa con elegancia, confianza y sin miedo. Donde tu sonrisa evoluciona.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h5>Tratamientos</h5>
+        <ul>
+          <li><a href="tratamientos.html#estetica">Diseño de sonrisa</a></li>
+          <li><a href="tratamientos.html#general">Implantes</a></li>
+          <li><a href="tratamientos.html#ortodoncia">Ortodoncia</a></li>
+          <li><a href="tratamientos.html#estetica">Blanqueamiento</a></li>
+          <li><a href="tratamientos.html#general">Limpieza</a></li>
+          <li><a href="tratamientos.html#general">Endodoncia</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Studio</h5>
+        <ul>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="equipo.html">Equipo</a></li>
+          <li><a href="testimonios.html">Testimonios</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="#">Trabaja con nosotros</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="#">+51 999 000 000</a></li>
+          <li><a href="#">hola@evolutiondental.pe</a></li>
+          <li>Av. Primavera 1234</li>
+          <li>San Borja, Lima</li>
+          <li>Lun–Sáb · 9:00–19:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <div>© 2026 Evolution Studio Dental — Tu sonrisa, en su mejor versión.</div>
+      <div class="legal"><a href="#">Privacidad</a><a href="#">Términos</a><a href="#">Política dental</a></div>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg>
+</a>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.qa button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.qa');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.qa').forEach(function (q) { q.classList.remove('open'); });
+      if (!isOpen) { item.classList.add('open'); }
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+---
+import Icon from '../Icon.astro';
+
+/**
+ * Botón / enlace del sistema de diseño.
+ * variant: p (primario mint), d (grafito), s (outline), w (blanco).
+ */
+interface Props {
+  href?: string;
+  variant?: 'p' | 'd' | 's' | 'w';
+  arrow?: boolean;
+  class?: string;
+  external?: boolean;
+}
+
+const { href = '#', variant = 'p', arrow = false, class: className = '', external = false } = Astro.props;
+const rel = external ? 'noopener noreferrer' : undefined;
+const target = external ? '_blank' : undefined;
+---
+
+<a href={href} class={`btn btn-${variant} ${className}`} rel={rel} target={target}>
+  <slot />
+  {arrow && (
+    <span class="arr"><Icon name="arrow-right" size={18} strokeWidth={2} /></span>
+  )}
+</a>

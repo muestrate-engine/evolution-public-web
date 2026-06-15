@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"/>
+<title>Evolution — Design System</title>
+<link rel="stylesheet" href="colors_and_type.css"/>
+<style>
+  body { margin: 0; background: var(--bg); color: var(--fg); }
+  .container { max-width: 1100px; margin: 0 auto; padding: 80px 40px 120px; }
+  .hero { display:flex; align-items:center; gap: 40px; margin-bottom: 80px; }
+  .hero img { width: 140px; height: 140px; }
+  .hero .word { font-size: 88px; font-weight: 300; letter-spacing: -0.025em; color: var(--evo-mint); line-height: 1; }
+  .hero .sub { font-size: 14px; font-weight: 500; letter-spacing: 0.32em; color: var(--evo-mint-600); margin-top: 8px; text-transform: uppercase; }
+  .hero p { font-size: 22px; font-weight: 300; color: var(--fg-2); margin: 24px 0 0; max-width: 560px; line-height: 1.5; }
+  h2 { font-size: 13px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--evo-mint-700); margin: 56px 0 24px; }
+  .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .card { background: white; border: 1px solid var(--line); border-radius: 16px; padding: 22px 24px; transition: all 240ms cubic-bezier(0.34,1.2,0.64,1); text-decoration: none; color: inherit; display:flex; flex-direction:column; gap: 6px; }
+  .card:hover { border-color: var(--evo-mint); box-shadow: 0 8px 24px -8px rgba(46,86,79,0.12); transform: translateY(-2px); }
+  .card .name { font-size: 17px; font-weight: 500; color: var(--fg); }
+  .card .desc { font-size: 13px; color: var(--fg-2); line-height: 1.5; }
+</style></head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <img src="assets/evolution-mark.svg" alt="Evolution" style="width:120px;height:120px;"/>
+      <div>
+        <div class="word">evolution</div>
+        <div class="sub">studio dental — design system</div>
+        <p>Tu sonrisa, en su mejor versión. Tokens, components and brand assets for Evolution.</p>
+      </div>
+    </div>
+
+    <h2>Deliverables</h2>
+    <div class="grid">
+      <a class="card" href="deliverables/website.html" style="grid-column: span 2; background: var(--evo-graphite); color: white; border-color: var(--evo-graphite);"><div class="name" style="color: white;">Landing page completa</div><div class="desc" style="color: var(--evo-mint-300);">10 secciones — header, hero, stats, nosotros, tratamientos, equipo, testimonios, ubicación, CTA, footer</div></a>
+      <a class="card" href="deliverables/business-cards.html"><div class="name">Tarjetas de presentación</div><div class="desc">Three pairs — mint, graphite premium, cream minimal</div></a>
+      <a class="card" href="deliverables/flyer-promocion.html"><div class="name">Flyers · Promoción</div><div class="desc">Square Instagram posts — limpieza + Sonrisa Blanca</div></a>
+      <a class="card" href="deliverables/flyer-cita.html"><div class="name">Flyers · Servicios y Testimonio</div><div class="desc">Square Instagram posts — services grid + review</div></a>
+      <a class="card" href="deliverables/flyer-stories.html"><div class="name">Flyers · Stories</div><div class="desc">9:16 covers — Antes/Después + Mitos</div></a>
+    </div>
+
+    <h2>Foundations</h2>
+    <div class="grid">
+      <a class="card" href="preview/logo.html"><div class="name">Logo</div><div class="desc">Primary lockup with brand colours</div></a>
+      <a class="card" href="preview/colors-primary.html"><div class="name">Mint scale</div><div class="desc">50–900 primary colour</div></a>
+      <a class="card" href="preview/colors-neutral.html"><div class="name">Neutrals</div><div class="desc">Bone, cream, sand, graphite</div></a>
+      <a class="card" href="preview/type-display.html"><div class="name">Display type</div><div class="desc">Manrope 300 — large + airy</div></a>
+      <a class="card" href="preview/type-scale.html"><div class="name">Type scale</div><div class="desc">H1 → small specimens</div></a>
+      <a class="card" href="preview/buttons.html"><div class="name">Buttons</div><div class="desc">Primary / secondary / ghost</div></a>
+      <a class="card" href="preview/cards.html"><div class="name">Cards</div><div class="desc">Three card recipes</div></a>
+      <a class="card" href="preview/voice.html"><div class="name">Voice</div><div class="desc">On-brand vs off-brand copy</div></a>
+    </div>
+
+    <h2>Documentation</h2>
+    <div class="grid">
+      <a class="card" href="README.md"><div class="name">README.md</div><div class="desc">Full brand & design system spec</div></a>
+      <a class="card" href="SKILL.md"><div class="name">SKILL.md</div><div class="desc">Agent skill instructions</div></a>
+      <a class="card" href="colors_and_type.css"><div class="name">colors_and_type.css</div><div class="desc">CSS variables — tokens</div></a>
+    </div>
+  </div>
+</body></html>

@@ -1,0 +1,100 @@
+---
+import { TS_TABS, TS_OPINIONS } from '../../../constants/testimonios-page';
+import { splitQuote } from '../../../utils/text';
+import Icon from '../../Icon.astro';
+---
+
+<section id="por-tratamiento" class="bg-evo-bone py-20 md:py-[120px]">
+  <div class="wrap">
+    <div class="mb-4 flex flex-wrap items-end justify-between gap-10">
+      <div>
+        <div class="eyebrow">Por tratamiento</div>
+        <h2 class="h-section">Filtra por lo que<br /><em>te interesa.</em></h2>
+      </div>
+      <p class="lead">
+        Elige un tratamiento y lee lo que cuentan quienes ya pasaron por ahí. Todas son reseñas reales
+        de Google.
+      </p>
+    </div>
+
+    <div class="my-10 flex flex-wrap gap-2.5" id="ts-tabs">
+      {
+        TS_TABS.map((tab, i) => (
+          <button
+            data-cat={tab.value}
+            class:list={[
+              'cursor-pointer rounded-full border px-5 py-[11px] text-sm font-medium tracking-[-0.01em] transition-all duration-200',
+              i === 0
+                ? 'border-evo-graphite bg-evo-graphite text-white'
+                : 'border-line bg-white text-fg-2 hover:border-evo-mint hover:text-evo-graphite',
+            ]}
+          >
+            {tab.label}
+          </button>
+        ))
+      }
+    </div>
+
+    <div class="grid grid-cols-1 gap-[18px] sm:grid-cols-2 lg:grid-cols-3" id="ts-opgrid">
+      {
+        TS_OPINIONS.map((op) => {
+          const s = splitQuote(op.quote, op.highlight);
+          return (
+            <article
+              data-cat={op.cat}
+              class="ts-op flex flex-col gap-4 rounded-[26px] border border-line bg-white px-8 py-[30px] transition-all duration-300 hover:-translate-y-[3px] hover:shadow-[0_22px_44px_-20px_rgba(46,86,79,0.18)]"
+            >
+              <div class="flex items-center justify-between gap-3">
+                <span class="rounded-full border border-evo-mint-100 bg-evo-mint-50 px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.12em] text-evo-mint-700">
+                  {op.category}
+                </span>
+                <div class="flex gap-[3px]">
+                  {Array.from({ length: 5 }).map(() => <Icon name="star" size={14} class="fill-evo-mint" />)}
+                </div>
+              </div>
+              <div class="flex-1 text-base font-light leading-[1.55] tracking-[-0.005em] text-evo-graphite">
+                "{s.before}<em class="italic text-evo-mint-700">{s.mark}</em>{s.after}"
+              </div>
+              <div class="flex items-center gap-3 border-t border-line pt-4">
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-full text-[15px] font-medium text-white"
+                  style="background: linear-gradient(135deg, #C8E3DC, #98CAC0);"
+                >
+                  {op.initials}
+                </div>
+                <div>
+                  <div class="text-sm font-medium text-fg">{op.name}</div>
+                  <div class="text-xs text-fg-3">{op.date}</div>
+                </div>
+                <Icon name="google" size={20} class="ml-auto" />
+              </div>
+            </article>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  function setupTestimonialTabs() {
+    const tabs = document.getElementById('ts-tabs');
+    if (!tabs) return;
+    const cards = Array.from(document.querySelectorAll<HTMLElement>('#ts-opgrid .ts-op'));
+    tabs.querySelectorAll<HTMLButtonElement>('button').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        tabs.querySelectorAll('button').forEach((b) => {
+          b.classList.remove('bg-evo-graphite', 'text-white', 'border-evo-graphite');
+          b.classList.add('bg-white', 'text-fg-2', 'border-line');
+        });
+        btn.classList.add('bg-evo-graphite', 'text-white', 'border-evo-graphite');
+        btn.classList.remove('bg-white', 'text-fg-2', 'border-line');
+        const cat = btn.dataset.cat;
+        cards.forEach((card) => {
+          card.style.display = cat === 'todos' || card.dataset.cat === cat ? '' : 'none';
+        });
+      });
+    });
+  }
+  document.addEventListener('astro:page-load', setupTestimonialTabs);
+</script>

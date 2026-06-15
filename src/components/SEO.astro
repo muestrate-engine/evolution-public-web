@@ -1,0 +1,120 @@
+---
+import type { SeoMeta } from '../types';
+import { SITE, RATING, SOCIALS } from '../constants/site';
+
+interface Props {
+  meta: SeoMeta;
+}
+const { meta } = Astro.props;
+
+const origin = Astro.site ?? new URL(SITE.url);
+const canonical = new URL(meta.path, origin).href;
+const ogImage = new URL(meta.image ?? '/img/photos/hero-sonrisa.jpg', origin).href;
+const keywords = meta.keywords?.join(', ');
+const robots = meta.noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large';
+const imageAlt = meta.imageAlt ?? `${SITE.name} — ${SITE.tagline}`;
+
+/** Negocio local (Dentist) — base para SEO local. */
+const dentistLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Dentist',
+  '@id': `${SITE.url}/#studio`,
+  name: SITE.name,
+  description: SITE.description,
+  url: SITE.url,
+  telephone: SITE.phone,
+  email: SITE.email,
+  image: ogImage,
+  logo: new URL('/img/brand/evolution-mark.svg', origin).href,
+  priceRange: '$$',
+  currenciesAccepted: 'PEN',
+  paymentAccepted: 'Efectivo, Tarjeta, Yape, Plin, Transferencia',
+  areaServed: 'Huancayo, Junín, Perú',
+  sameAs: SOCIALS.map((s) => s.href),
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: SITE.address.street,
+    addressLocality: SITE.address.district,
+    addressRegion: SITE.address.city,
+    postalCode: SITE.address.postalCode,
+    addressCountry: 'PE',
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: -12.069299943655524, longitude: -75.20574306510962 },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: RATING.score,
+    reviewCount: '812',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  openingHoursSpecification: [
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '19:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Saturday'], opens: '09:00', closes: '14:00' },
+  ],
+};
+
+/** Breadcrumbs (Inicio › Página actual). */
+const crumbs = [{ name: 'Inicio', url: SITE.url }];
+if (meta.path !== '/') {
+  crumbs.push({ name: meta.title.split('—')[0].trim(), url: canonical });
+}
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: crumbs.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: c.name,
+    item: c.url,
+  })),
+};
+
+/** FAQPage (solo si la página aporta preguntas). */
+const faqLd = meta.faq?.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: meta.faq.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    }
+  : null;
+---
+
+<!-- Primary Meta -->
+<title>{meta.title}</title>
+<meta name="description" content={meta.description} />
+{keywords && <meta name="keywords" content={keywords} />}
+<meta name="robots" content={robots} />
+<meta name="author" content={SITE.name} />
+<meta name="theme-color" content="#98CAC0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="geo.region" content="PE-JUN" />
+<meta name="geo.placename" content="Huancayo, Junín" />
+<link rel="canonical" href={canonical} />
+
+<!-- Open Graph -->
+<meta property="og:type" content={meta.type ?? 'website'} />
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:title" content={meta.title} />
+<meta property="og:description" content={meta.description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={imageAlt} />
+<meta property="og:locale" content="es_PE" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={meta.title} />
+<meta name="twitter:description" content={meta.description} />
+<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={imageAlt} />
+
+<!-- Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(dentistLd)} is:inline />
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} is:inline />
+{faqLd && <script type="application/ld+json" set:html={JSON.stringify(faqLd)} is:inline />}

@@ -1,0 +1,243 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Business Cards" subtitle="Three pairs: mint, graphite premium, cream minimal" -->
+<html lang="es"><head><meta charset="utf-8"/>
+<title>Evolution — Tarjetas de presentación</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  body { margin:0; padding: 60px; background: #EAE5DB; min-height: 100vh; display:flex; flex-direction:column; gap: 40px; align-items:center; }
+  .label { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--evo-mint-700); }
+  .row { display:flex; gap: 40px; flex-wrap: wrap; justify-content:center; }
+
+  /* Standard 3.5 x 2 inch ratio @ 220dpi visual = 770 x 440 */
+  .card {
+    width: 770px;
+    height: 440px;
+    border-radius: 18px;
+    box-shadow: 0 30px 60px -20px rgba(46,86,79,0.25), 0 8px 20px rgba(46,86,79,0.10);
+    overflow: hidden;
+    position: relative;
+    font-family: var(--font-sans);
+  }
+
+  /* ============================================
+     FRONT — Mint with mark, minimal */
+  .front {
+    background: #98CAC0;
+    color: #1B3530;
+    padding: 56px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .front .petals {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.18;
+  }
+  .front .petals svg { width: 110%; height: 110%; position:absolute; right: -20%; top: -20%; }
+  .front .lockup {
+    display: flex; flex-direction: column; gap: 6px;
+    z-index: 2;
+  }
+  .front .word {
+    font-size: 92px; font-weight: 300; letter-spacing: -0.03em; line-height: 1;
+    color: white;
+  }
+  .front .sub {
+    font-size: 13px; font-weight: 500; letter-spacing: 0.32em; color: rgba(255,255,255,0.85);
+    text-transform: uppercase;
+  }
+  .front .tagline {
+    font-size: 18px; font-weight: 300; letter-spacing: -0.01em;
+    color: rgba(255,255,255,0.92); z-index: 2; max-width: 60%;
+  }
+
+  /* ============================================
+     BACK — Bone, with name + contact */
+  .back {
+    background: #FAF7F2;
+    color: var(--evo-graphite);
+    padding: 48px 56px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .back .leftcol { display:flex; flex-direction:column; justify-content: space-between; }
+  .back .markrow { display:flex; align-items:center; gap: 14px; }
+  .back .markrow .word { font-size: 36px; font-weight: 300; letter-spacing: -0.02em; color: var(--evo-mint); line-height: 1; }
+  .back .markrow .sub { font-size: 9px; font-weight: 500; letter-spacing: 0.32em; color: var(--evo-mint-600); margin-top: 4px; text-transform: uppercase; }
+
+  .name-block { display:flex; flex-direction:column; gap: 4px; }
+  .name { font-size: 28px; font-weight: 400; letter-spacing: -0.015em; color: var(--evo-graphite); }
+  .role-eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 0.24em; color: var(--evo-mint-700); text-transform: uppercase; }
+  .credentials { font-size: 12px; color: var(--fg-2); margin-top: 2px; }
+
+  .back .rightcol { display:flex; flex-direction: column; justify-content: flex-end; gap: 14px; padding-top: 36px; }
+  .contact-row { display:flex; align-items: center; gap: 12px; font-size: 13.5px; color: var(--fg); font-weight: 400; }
+  .contact-row .ico { width: 28px; height: 28px; border-radius: 50%; background: var(--evo-mint-50); display:flex; align-items:center; justify-content:center; color: var(--evo-mint-700); flex-shrink: 0; border: 1px solid var(--evo-mint-100); }
+  .contact-row .ico svg { width: 14px; height: 14px; }
+
+  .divider { position:absolute; top: 48px; bottom: 48px; left: 50%; width: 1px; background: var(--line); }
+
+  /* Vertical mint accent bar on back */
+  .back::before {
+    content: ""; position:absolute; left:0; top:0; bottom:0; width:8px;
+    background: linear-gradient(180deg, #98CAC0, #5E9D90);
+  }
+
+  /* ============================================
+     CARD VARIANT 2 — Premium graphite back */
+  .front-graphite { background: var(--evo-graphite); color: white; }
+  .front-graphite .word { color: var(--evo-mint); }
+  .front-graphite .sub { color: rgba(152,202,192,0.85); }
+  .front-graphite .tagline { color: rgba(255,255,255,0.7); }
+
+  /* ============================================
+     CARD VARIANT 3 — Cream / nude minimal */
+  .front-cream {
+    background: #F5EFE6;
+    color: var(--evo-mint-800);
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+  }
+  .front-cream .word { color: var(--evo-mint); font-size: 110px; }
+  .front-cream .sub { color: var(--evo-mint-600); margin-top: 8px; }
+  .front-cream .tagline { display:none; }
+</style></head>
+<body>
+  <div class="label">Evolution · Tarjetas de presentación · 90 × 55mm</div>
+
+  <!-- =================== PAIR 1 =================== -->
+  <div class="row">
+    <!-- FRONT -->
+    <div class="card front">
+      <svg class="petals" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="white" stroke-width="2">
+          <path d="M300 60 C 380 80 440 180 440 280 C 360 280 280 200 280 100 Z"/>
+          <path d="M300 60 C 220 80 160 180 160 280 C 240 280 320 200 320 100 Z"/>
+          <path d="M120 320 C 200 280 280 320 280 400 C 200 420 120 380 120 320 Z"/>
+          <path d="M480 320 C 400 280 320 320 320 400 C 400 420 480 380 480 320 Z"/>
+        </g>
+      </svg>
+      <div class="lockup">
+        <div class="word">evolution</div>
+        <div class="sub">studio dental</div>
+      </div>
+      <div class="tagline">Tu sonrisa,<br/>en su mejor versión.</div>
+    </div>
+
+    <!-- BACK -->
+    <div class="card back">
+      <div class="leftcol">
+        <div class="markrow">
+          <img src="../assets/evolution-mark.svg" style="width:90px;height:auto;object-fit:contain;" alt="Evolution"/>
+        </div>
+        <div class="name-block">
+          <div class="role-eyebrow">Cirujano dentista</div>
+          <div class="name">Dra. Camila Reyes</div>
+          <div class="credentials">CDP 28471 · Especialista en estética dental</div>
+        </div>
+      </div>
+      <div class="rightcol">
+        <div class="contact-row">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg></div>
+          <span>+51 999 000 000</span>
+        </div>
+        <div class="contact-row">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+          <span>hola@evolutiondental.pe</span>
+        </div>
+        <div class="contact-row">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></div>
+          <span>@evolution.dental</span>
+        </div>
+        <div class="contact-row">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-7-8-13a8 8 0 0 1 16 0c0 6-8 13-8 13Z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+          <span>Av. Primavera 1234, San Borja</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="label">Variante 2 · Premium graphite</div>
+
+  <!-- =================== PAIR 2 =================== -->
+  <div class="row">
+    <div class="card front front-graphite">
+      <svg class="petals" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" style="opacity:0.15">
+        <g fill="none" stroke="#98CAC0" stroke-width="2">
+          <path d="M300 60 C 380 80 440 180 440 280 C 360 280 280 200 280 100 Z"/>
+          <path d="M300 60 C 220 80 160 180 160 280 C 240 280 320 200 320 100 Z"/>
+          <path d="M120 320 C 200 280 280 320 280 400 C 200 420 120 380 120 320 Z"/>
+          <path d="M480 320 C 400 280 320 320 320 400 C 400 420 480 380 480 320 Z"/>
+        </g>
+      </svg>
+      <div class="lockup">
+        <div class="word">evolution</div>
+        <div class="sub">studio dental</div>
+      </div>
+      <div class="tagline">Donde tu sonrisa<br/>evoluciona.</div>
+    </div>
+
+    <div class="card back" style="background: var(--evo-graphite); color: var(--evo-bone);">
+      <div class="leftcol">
+        <div class="markrow">
+          <img src="../assets/evolution-mark.svg" style="width:90px;height:auto;object-fit:contain;" alt="Evolution"/>
+        </div>
+        <div class="name-block">
+          <div class="role-eyebrow" style="color: var(--evo-mint-300);">Director clínico</div>
+          <div class="name" style="color: var(--evo-bone);">Dr. Sebastián Vega</div>
+          <div class="credentials" style="color: var(--evo-gray-300);">CDP 19083 · Implantología y diseño de sonrisa</div>
+        </div>
+      </div>
+      <div class="rightcol">
+        <div class="contact-row" style="color: var(--evo-bone);">
+          <div class="ico" style="background: rgba(152,202,192,0.12); color: var(--evo-mint); border-color: rgba(152,202,192,0.2);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg></div>
+          <span>+51 999 111 222</span>
+        </div>
+        <div class="contact-row" style="color: var(--evo-bone);">
+          <div class="ico" style="background: rgba(152,202,192,0.12); color: var(--evo-mint); border-color: rgba(152,202,192,0.2);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+          <span>sebastian@evolutiondental.pe</span>
+        </div>
+        <div class="contact-row" style="color: var(--evo-bone);">
+          <div class="ico" style="background: rgba(152,202,192,0.12); color: var(--evo-mint); border-color: rgba(152,202,192,0.2);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/></svg></div>
+          <span>@evolution.dental</span>
+        </div>
+        <div class="contact-row" style="color: var(--evo-bone);">
+          <div class="ico" style="background: rgba(152,202,192,0.12); color: var(--evo-mint); border-color: rgba(152,202,192,0.2);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-7-8-13a8 8 0 0 1 16 0c0 6-8 13-8 13Z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+          <span>Av. Primavera 1234, San Borja</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="label">Variante 3 · Cream minimal — caras intercambiables</div>
+
+  <!-- =================== PAIR 3 =================== -->
+  <div class="row">
+    <div class="card front-cream front">
+      <div class="lockup" style="align-items:center;">
+        <div class="word">evolution</div>
+        <div class="sub">studio dental</div>
+      </div>
+    </div>
+
+    <div class="card back" style="background: #F5EFE6; grid-template-columns: 1fr;">
+      <div style="display:flex;flex-direction:column;justify-content:space-between;height:100%;">
+        <div class="name-block">
+          <div class="role-eyebrow">Coordinadora de pacientes</div>
+          <div class="name" style="font-size: 32px;">Lucía Mendoza</div>
+        </div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 12px 28px;">
+          <div class="contact-row"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg></div><span>+51 999 333 444</span></div>
+          <div class="contact-row"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div><span>citas@evolutiondental.pe</span></div>
+          <div class="contact-row"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></div><span>@evolution.dental</span></div>
+          <div class="contact-row"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-7-8-13a8 8 0 0 1 16 0c0 6-8 13-8 13Z"/></svg></div><span>San Borja, Lima</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body></html>

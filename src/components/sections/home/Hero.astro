@@ -1,0 +1,126 @@
+---
+import { SITE, RATING } from '../../../constants/site';
+import { IMAGES } from '../../../constants/images';
+import Button from '../../ui/Button.astro';
+import Icon from '../../Icon.astro';
+
+const perks = [
+  { icon: 'shield', label: 'Sedación consciente' },
+  { icon: 'clock', label: 'Citas de 60–90 min' },
+  { icon: 'heart', label: 'Cuotas sin intereses' },
+];
+---
+
+<section class="relative overflow-hidden py-20 pb-[100px]">
+  <img
+    src="/img/brand/evolution-mark.svg"
+    alt=""
+    class="pointer-events-none absolute -right-[180px] -top-[120px] w-[580px] opacity-[0.06]"
+  />
+  <div class="wrap grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+    <!-- Columna texto -->
+    <div>
+      <div class="mb-7 flex flex-wrap gap-2">
+        <span
+          class="inline-flex items-center gap-2 rounded-full border border-line bg-white px-3.5 py-2 text-[12.5px] font-medium text-fg-2"
+        >
+          <span class="h-1.5 w-1.5 rounded-full bg-evo-mint"></span>Citas disponibles esta semana
+        </span>
+        <span
+          class="inline-flex items-center gap-2 rounded-full border border-line bg-white px-3.5 py-2 text-[12.5px] font-medium text-fg-2"
+        >
+          ★ {RATING.score} · {RATING.count} reseñas
+        </span>
+      </div>
+
+      <h1 class="m-0 mb-7 text-[clamp(48px,6.8vw,104px)] font-extralight leading-[0.96] tracking-[-0.035em] text-evo-graphite">
+        Tu sonrisa,<br />en su <em class="font-extralight not-italic text-evo-mint">mejor versión.</em>
+      </h1>
+      <p class="m-0 mb-10 max-w-[540px] text-[21px] font-light leading-[1.55] text-fg-2">
+        {SITE.description}
+      </p>
+      <div class="flex flex-wrap gap-3.5">
+        <Button href="/contacto" variant="p" arrow>Agenda tu cita</Button>
+        <Button href="/tratamientos" variant="s">Ver tratamientos</Button>
+      </div>
+
+      <div class="mt-14 flex flex-wrap gap-8 border-t border-line pt-8">
+        {
+          perks.map((p) => (
+            <div class="flex items-center gap-3 text-sm text-fg-2">
+              <span class="flex h-9 w-9 items-center justify-center rounded-full border border-evo-mint-100 bg-evo-mint-50 text-evo-mint-700">
+                <Icon name={p.icon} size={16} />
+              </span>
+              {p.label}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Columna arte -->
+    <div class="relative">
+      <div class="grid grid-cols-[5fr_4fr] grid-rows-[auto_auto] gap-4">
+        <!-- Tarjeta principal con foto -->
+        <div
+          class="relative col-start-1 row-span-2 aspect-[5/7] overflow-hidden rounded-[32px] shadow-[0_30px_60px_-24px_rgba(46,86,79,0.28)]"
+          style="background: linear-gradient(165deg, #C8E3DC 0%, #98CAC0 60%, #5E9D90 100%);"
+        >
+          <img
+            src={IMAGES.heroSmile}
+            alt="Paciente sonriendo en Evolution Studio Dental"
+            width="900"
+            height="1260"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            class="absolute inset-0 h-full w-full object-cover"
+          />
+          <div
+            class="absolute left-6 top-6 z-[2] rounded-full bg-white/85 px-[18px] py-2.5 text-[11px] font-medium uppercase tracking-[0.24em] text-evo-mint-700 backdrop-blur-md"
+          >
+            Sonrisa Evolution
+          </div>
+          <div class="absolute inset-x-6 bottom-6 z-[2] text-[18px] font-light leading-[1.4] text-white">
+            "Salí con una sonrisa <em class="italic">que no reconocía como mía.</em>"
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-evo-mint-900/30"></div>
+        </div>
+
+        <!-- Tarjeta equipos -->
+        <div
+          class="relative col-start-2 row-start-1 aspect-square overflow-hidden rounded-[32px] shadow-[0_30px_60px_-24px_rgba(46,86,79,0.28)]"
+          style="background: linear-gradient(165deg, #F5EFE6 0%, #E8E2D7 100%);"
+        >
+          <svg viewBox="0 0 100 100" class="absolute left-1/2 top-1/2 w-[60%] -translate-x-1/2 -translate-y-1/2 opacity-35">
+            <path
+              class="tooth-line"
+              d="M50 15 c-12 0 -20 8 -20 20 c0 9 2 16 2 26 c0 8 -2 14 -2 22 c0 9 5 14 10 14 c4 0 5 -4 5 -8 c0 -4 -1 -8 2 -8 c3 0 2 4 2 8 c0 4 1 8 5 8 c5 0 10 -5 10 -14 c0 -8 -2 -14 -2 -22 c0 -10 2 -17 2 -26 c0 -12 -8 -20 -20 -20z"
+            ></path>
+          </svg>
+          <div class="absolute inset-x-[18px] bottom-[18px] text-[11px] font-medium uppercase tracking-[0.24em] text-evo-mint-800">
+            Equipos premium
+          </div>
+        </div>
+
+        <!-- Tarjeta rating -->
+        <div
+          class="col-start-2 row-start-2 flex aspect-[4/3] flex-col justify-between rounded-[32px] bg-evo-graphite p-6 text-white shadow-[0_30px_60px_-24px_rgba(46,86,79,0.28)]"
+        >
+          <div>
+            <div class="text-[11px] font-medium uppercase tracking-[0.24em] text-evo-mint-300">Reseñas Google</div>
+            <div class="text-4xl font-extralight leading-none tracking-[-0.02em]">
+              <span class="text-evo-mint">{RATING.score}</span><span class="text-[18px] text-white/50">/{RATING.outOf}</span>
+            </div>
+          </div>
+          <div>
+            <div class="flex gap-[3px]">
+              {Array.from({ length: 5 }).map(() => <Icon name="star" size={12} class="fill-evo-mint" />)}
+            </div>
+            <div class="mt-1.5 text-[11px] uppercase tracking-[0.18em] text-white/55">+{RATING.count} reseñas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

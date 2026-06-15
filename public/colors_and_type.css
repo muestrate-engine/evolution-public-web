@@ -1,0 +1,228 @@
+/* ============================================
+   Evolution — Studio Dental
+   Colors & Type Foundations
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+  /* ---------- BRAND COLORS ---------- */
+  --evo-mint: #98CAC0;             /* primary */
+  --evo-mint-50: #F2F9F7;          /* tint, backgrounds */
+  --evo-mint-100: #E1F0EC;
+  --evo-mint-200: #C8E3DC;
+  --evo-mint-300: #ADD6CC;
+  --evo-mint-400: #98CAC0;         /* same as primary */
+  --evo-mint-500: #7DB7AC;
+  --evo-mint-600: #5E9D90;
+  --evo-mint-700: #467A6F;
+  --evo-mint-800: #2F564F;
+  --evo-mint-900: #1B3530;
+
+  /* ---------- NEUTRALS ---------- */
+  --evo-bone: #FAF7F2;             /* warm white / nude */
+  --evo-cream: #F5EFE6;            /* beige accent */
+  --evo-pearl: #FFFFFF;
+  --evo-sand: #E8E2D7;
+  --evo-fog: #EDEDEA;
+
+  --evo-gray-50:  #F7F7F6;
+  --evo-gray-100: #EFEEEC;
+  --evo-gray-200: #DDDCD8;
+  --evo-gray-300: #C2C0BB;
+  --evo-gray-400: #9A9892;
+  --evo-gray-500: #6E6C66;
+  --evo-gray-600: #4D4B46;
+  --evo-gray-700: #34322E;
+  --evo-gray-800: #1F1E1B;
+  --evo-graphite: #2A2A28;         /* premium near-black */
+
+  /* ---------- SEMANTIC COLORS ---------- */
+  --bg:        var(--evo-bone);
+  --bg-soft:   var(--evo-mint-50);
+  --bg-elev:   #FFFFFF;
+  --fg:        var(--evo-graphite);
+  --fg-2:      var(--evo-gray-600);
+  --fg-3:      var(--evo-gray-400);
+  --fg-on-mint:#1B3530;
+  --accent:    var(--evo-mint);
+  --accent-deep: var(--evo-mint-700);
+  --line:      var(--evo-gray-200);
+  --line-soft: var(--evo-mint-100);
+
+  /* status (kept soft to not feel medical) */
+  --success: #7AB5A0;
+  --warning: #E0B66A;
+  --danger:  #D08577;
+
+  /* ---------- TYPE SYSTEM ---------- */
+  --font-sans: "Manrope", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Manrope", ui-sans-serif, sans-serif;
+
+  /* type scale (1.25 minor third, 16px base) */
+  --fs-12: 0.75rem;
+  --fs-14: 0.875rem;
+  --fs-16: 1rem;
+  --fs-18: 1.125rem;
+  --fs-20: 1.25rem;
+  --fs-24: 1.5rem;
+  --fs-32: 2rem;
+  --fs-40: 2.5rem;
+  --fs-56: 3.5rem;
+  --fs-72: 4.5rem;
+  --fs-96: 6rem;
+
+  --tracking-tight:  -0.02em;
+  --tracking-snug:   -0.01em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.08em;
+  --tracking-wider:   0.18em;   /* used for "STUDIO DENTAL" */
+
+  --leading-tight:   1.05;
+  --leading-snug:    1.2;
+  --leading-normal:  1.45;
+  --leading-relaxed: 1.6;
+
+  /* ---------- SPACING ---------- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 96px;
+  --sp-10: 128px;
+
+  /* ---------- RADII ---------- */
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+  --r-2xl: 44px;
+  --r-pill: 999px;
+
+  /* ---------- SHADOWS (soft, low-contrast, mint-tinted) ---------- */
+  --shadow-xs: 0 1px 2px rgba(46, 86, 79, 0.04);
+  --shadow-sm: 0 2px 6px rgba(46, 86, 79, 0.06), 0 1px 2px rgba(46, 86, 79, 0.04);
+  --shadow-md: 0 8px 24px -8px rgba(46, 86, 79, 0.12), 0 2px 6px rgba(46, 86, 79, 0.05);
+  --shadow-lg: 0 24px 48px -16px rgba(46, 86, 79, 0.18), 0 4px 10px rgba(46, 86, 79, 0.06);
+  --shadow-glow: 0 0 0 6px rgba(152, 202, 192, 0.18);
+
+  /* ---------- MOTION ---------- */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1); /* @kind other */
+  --ease-soft: cubic-bezier(0.34, 1.2, 0.64, 1); /* @kind other */ /* gentle overshoot */
+  --dur-fast: 160ms; /* @kind other */
+  --dur-base: 240ms; /* @kind other */
+  --dur-slow: 420ms; /* @kind other */
+}
+
+/* ============================================
+   SEMANTIC TYPE STYLES
+   ============================================ */
+
+html, body {
+  font-family: var(--font-sans);
+  color: var(--fg);
+  background: var(--bg);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.evo-display {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 6rem);
+  font-weight: 300;
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  color: var(--fg);
+}
+
+.evo-h1 {
+  font-size: var(--fs-56);
+  font-weight: 300;
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+
+.evo-h2 {
+  font-size: var(--fs-40);
+  font-weight: 400;
+  letter-spacing: var(--tracking-snug);
+  line-height: var(--leading-snug);
+}
+
+.evo-h3 {
+  font-size: var(--fs-24);
+  font-weight: 500;
+  letter-spacing: var(--tracking-snug);
+  line-height: var(--leading-snug);
+}
+
+.evo-lead {
+  font-size: var(--fs-20);
+  font-weight: 300;
+  line-height: var(--leading-relaxed);
+  color: var(--fg-2);
+}
+
+.evo-body {
+  font-size: var(--fs-16);
+  font-weight: 400;
+  line-height: var(--leading-relaxed);
+  color: var(--fg);
+}
+
+.evo-small {
+  font-size: var(--fs-14);
+  font-weight: 400;
+  color: var(--fg-2);
+  line-height: var(--leading-normal);
+}
+
+.evo-caption {
+  font-size: var(--fs-12);
+  font-weight: 500;
+  color: var(--fg-3);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+/* the signature lockup style under the wordmark */
+.evo-eyebrow {
+  font-size: var(--fs-12);
+  font-weight: 500;
+  color: var(--accent-deep);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+.evo-quote {
+  font-family: var(--font-display);
+  font-size: var(--fs-32);
+  font-weight: 200;
+  font-style: italic;
+  letter-spacing: var(--tracking-snug);
+  line-height: 1.3;
+  color: var(--fg);
+}
+
+/* ============================================
+   PRIMITIVES
+   ============================================ */
+.evo-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--r-pill);
+  background: var(--evo-mint-50);
+  color: var(--accent-deep);
+  font-size: var(--fs-14);
+  font-weight: 500;
+  letter-spacing: var(--tracking-snug);
+  border: 1px solid var(--line-soft);
+}

@@ -1,0 +1,51 @@
+---
+import { EQ_TRAINING } from '../../../constants/equipo-page';
+---
+
+<section class="relative overflow-hidden bg-evo-graphite py-20 md:py-[130px] text-white">
+  <div
+    class="pointer-events-none absolute -right-[10%] -top-[30%] h-[680px] w-[680px]"
+    style="background: radial-gradient(circle, rgba(152,202,192,0.16), transparent 60%);"
+  >
+  </div>
+  <div class="wrap relative grid grid-cols-1 items-start gap-20 lg:grid-cols-[5fr_7fr]">
+    <div class="lg:sticky lg:top-[110px]">
+      <div class="eyebrow !text-evo-mint before:!bg-evo-mint">Formación continua</div>
+      <h2 class="m-0 mb-6 text-[clamp(38px,4.6vw,64px)] font-extralight leading-[1.04] tracking-[-0.025em] text-white">
+        Nunca dejamos<br />de <em class="font-extralight italic text-evo-mint">estudiar.</em>
+      </h2>
+      <p class="m-0 max-w-[420px] text-[18px] font-light leading-[1.6] text-white/70">
+        La odontología cambia cada año. Por eso todo el equipo dedica tiempo —y presupuesto— a
+        actualizarse, para que tú recibas siempre lo mejor de la disciplina.
+      </p>
+      <div class="mt-9 rounded-[26px] bg-evo-mint p-8 text-evo-mint-900">
+        <div class="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-evo-mint-900/60">Nuestro compromiso</div>
+        <div class="text-[22px] font-light leading-[1.38] tracking-[-0.015em]">
+          Cada profesional completa <em class="italic">más de 40 horas</em> de formación certificada al
+          año. Sin excepciones.
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col">
+      {
+        EQ_TRAINING.map((row) => (
+          <div class="grid grid-cols-1 gap-2 border-b border-white/[0.12] py-7 last:border-b-0 sm:grid-cols-[110px_1fr] sm:gap-7">
+            <div class="text-2xl font-light leading-[1.1] tracking-[-0.01em] text-evo-mint-300">{row.yr}</div>
+            <div>
+              <h4 class="m-0 mb-2 text-[21px] font-normal tracking-[-0.015em] text-white">{row.title}</h4>
+              <p class="m-0 text-[15px] leading-[1.6] text-white/[0.62]">{row.text}</p>
+              <div class="mt-3.5 flex flex-wrap gap-2">
+                {row.pills.map((pill) => (
+                  <span class="rounded-full border border-evo-mint/[0.28] bg-evo-mint/[0.12] px-3 py-[5px] text-[11.5px] font-medium text-evo-mint-300">
+                    {pill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

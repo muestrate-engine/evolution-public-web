@@ -1,0 +1,23 @@
+---
+/** Logotipo + wordmark de Evolution. Usado en header y footer. */
+interface Props {
+  size?: 'sm' | 'lg';
+  class?: string;
+}
+const { size = 'sm', class: className = '' } = Astro.props;
+const isLg = size === 'lg';
+---
+
+<a href="/" class={`flex items-center gap-3 ${className}`} aria-label="Evolution Studio Dental — inicio">
+  <img src="/img/brand/evolution-mark.svg" alt="" class={isLg ? 'h-[52px] w-auto' : 'h-[42px] w-auto'} />
+  <div>
+    <div class={`font-light leading-none tracking-[-0.025em] text-evo-mint ${isLg ? 'text-[32px]' : 'text-2xl'}`}>
+      evolution
+    </div>
+    <div
+      class={`mt-1 font-medium uppercase tracking-[0.32em] ${isLg ? 'text-[11px] text-evo-mint-300' : 'text-[9px] text-evo-mint-600'}`}
+    >
+      studio dental
+    </div>
+  </div>
+</a>

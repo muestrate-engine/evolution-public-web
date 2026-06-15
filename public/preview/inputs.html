@@ -1,0 +1,21 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Form Inputs" subtitle="Text, select, textarea — focus state" viewport="700x280" -->
+<html><head><meta charset="utf-8"/>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  body { margin:0; padding:28px 32px; background: var(--bg); display:flex; flex-direction:column; gap:14px; max-width: 560px; }
+  label { display:flex; flex-direction:column; gap: 6px; }
+  .lbl { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform:uppercase; color: var(--evo-mint-700); }
+  input, textarea, select { font-family: var(--font-sans); font-size: 15px; padding: 14px 16px; border-radius: 16px; border: 1px solid var(--line); background: white; color: var(--fg); outline: none; transition: all 240ms ease; }
+  input:focus, textarea:focus, select:focus { border-color: var(--evo-mint); box-shadow: 0 0 0 6px rgba(152,202,192,0.18); }
+  .row { display:flex; gap:12px; }
+  .row > * { flex: 1; }
+</style></head>
+<body>
+  <label><span class="lbl">Tu nombre</span><input value="María Fernández"/></label>
+  <div class="row">
+    <label><span class="lbl">WhatsApp</span><input value="+51 999 000 000"/></label>
+    <label><span class="lbl">Servicio</span><select><option>Limpieza</option><option>Blanqueamiento</option><option>Ortodoncia</option></select></label>
+  </div>
+  <label><span class="lbl">Mensaje</span><textarea rows="2">Quisiera agendar mi primera evaluación.</textarea></label>
+</body></html>

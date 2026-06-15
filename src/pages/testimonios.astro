@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { testimoniosSeo } from '../seo';
+import Hero from '../components/sections/testimonios/Hero.astro';
+import Trust from '../components/sections/testimonios/Trust.astro';
+import Featured from '../components/sections/testimonios/Featured.astro';
+import ByTreatment from '../components/sections/testimonios/ByTreatment.astro';
+import Cta from '../components/sections/Cta.astro';
+---
+
+<Layout meta={testimoniosSeo}>
+  <Hero />
+  <Trust />
+  <Featured />
+  <ByTreatment />
+  <Cta />
+</Layout>

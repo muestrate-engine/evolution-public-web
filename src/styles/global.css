@@ -1,0 +1,242 @@
+/* ============================================================
+   Evolution — Studio Dental
+   Global stylesheet · Tailwind v4 + design tokens
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------
+   THEME — todos los tokens de marca expuestos como utilidades
+   de Tailwind. No se usan colores externos: solo estas variables.
+   ------------------------------------------------------------ */
+@theme {
+  /* ---------- BRAND / MINT ---------- */
+  --color-evo-mint: #98cac0;
+  --color-evo-mint-50: #f2f9f7;
+  --color-evo-mint-100: #e1f0ec;
+  --color-evo-mint-200: #c8e3dc;
+  --color-evo-mint-300: #add6cc;
+  --color-evo-mint-400: #98cac0;
+  --color-evo-mint-500: #7db7ac;
+  --color-evo-mint-600: #5e9d90;
+  --color-evo-mint-700: #467a6f;
+  --color-evo-mint-800: #2f564f;
+  --color-evo-mint-900: #1b3530;
+
+  /* ---------- NEUTRALS ---------- */
+  --color-evo-bone: #faf7f2;
+  --color-evo-cream: #f5efe6;
+  --color-evo-pearl: #ffffff;
+  --color-evo-sand: #e8e2d7;
+  --color-evo-fog: #ededea;
+  --color-evo-gray-50: #f7f7f6;
+  --color-evo-gray-100: #efeeec;
+  --color-evo-gray-200: #dddcd8;
+  --color-evo-gray-300: #c2c0bb;
+  --color-evo-gray-400: #9a9892;
+  --color-evo-gray-500: #6e6c66;
+  --color-evo-gray-600: #4d4b46;
+  --color-evo-gray-700: #34322e;
+  --color-evo-gray-800: #1f1e1b;
+  --color-evo-graphite: #2a2a28;
+
+  /* ---------- SEMANTIC ---------- */
+  --color-bg: #faf7f2;
+  --color-bg-soft: #f2f9f7;
+  --color-bg-elev: #ffffff;
+  --color-fg: #2a2a28;
+  --color-fg-2: #4d4b46;
+  --color-fg-3: #9a9892;
+  --color-accent: #98cac0;
+  --color-accent-deep: #467a6f;
+  --color-line: #dddcd8;
+  --color-line-soft: #e1f0ec;
+  --color-success: #7ab5a0;
+  --color-warning: #e0b66a;
+  --color-danger: #d08577;
+
+  /* ---------- TYPE ---------- */
+  --font-sans: 'Manrope', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Manrope', ui-sans-serif, sans-serif;
+
+  /* ---------- RADII ---------- */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-2xl: 44px;
+
+  /* ---------- SHADOWS (mint-tinted) ---------- */
+  --shadow-xs: 0 1px 2px rgba(46, 86, 79, 0.04);
+  --shadow-sm: 0 2px 6px rgba(46, 86, 79, 0.06), 0 1px 2px rgba(46, 86, 79, 0.04);
+  --shadow-md: 0 8px 24px -8px rgba(46, 86, 79, 0.12), 0 2px 6px rgba(46, 86, 79, 0.05);
+  --shadow-lg: 0 24px 48px -16px rgba(46, 86, 79, 0.18), 0 4px 10px rgba(46, 86, 79, 0.06);
+  --shadow-xl: 0 30px 60px -24px rgba(46, 86, 79, 0.28);
+
+  /* ---------- MOTION ---------- */
+  --ease-soft: cubic-bezier(0.34, 1.2, 0.64, 1);
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  /* ---------- ANIMATION ---------- */
+  --animate-pulse-pin: pulse-pin 2.4s infinite;
+}
+
+@keyframes pulse-pin {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* ------------------------------------------------------------
+   BASE
+   ------------------------------------------------------------ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    overflow-x: hidden;
+    font-family: var(--font-sans);
+    font-feature-settings: 'ss01', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+/* ------------------------------------------------------------
+   COMPONENT PRIMITIVES — reutilizadas en todas las páginas.
+   Construidas 100% sobre los tokens del @theme de Tailwind.
+   ------------------------------------------------------------ */
+@layer components {
+  .wrap {
+    @apply mx-auto max-w-[1280px] px-5 sm:px-8;
+  }
+
+  /* ----- eyebrow ----- */
+  .eyebrow {
+    @apply mb-6 inline-flex items-center gap-2.5 text-xs font-medium uppercase tracking-[0.32em] text-evo-mint-700;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply h-px w-7 bg-evo-mint;
+  }
+
+  /* ----- section heading ----- */
+  .h-section {
+    font-size: clamp(40px, 5.2vw, 76px);
+    @apply m-0 mb-6 max-w-[880px] font-extralight leading-[1.02] tracking-[-0.025em] text-evo-graphite;
+  }
+  .h-section em {
+    @apply font-extralight not-italic text-evo-mint;
+    font-style: italic;
+  }
+
+  .lead {
+    @apply m-0 max-w-[640px] text-xl font-light leading-[1.55] text-fg-2;
+  }
+
+  /* ----- buttons ----- */
+  .btn {
+    @apply inline-flex cursor-pointer items-center gap-3 rounded-full border-none px-7 py-4 text-base font-medium tracking-[-0.01em] transition-all duration-200;
+    transition-timing-function: var(--ease-soft);
+  }
+  .btn-p {
+    @apply bg-evo-mint text-evo-mint-900;
+  }
+  .btn-p:hover {
+    @apply -translate-y-px bg-evo-mint-500;
+    box-shadow: 0 14px 28px -10px rgba(46, 86, 79, 0.35);
+  }
+  .btn-d {
+    @apply bg-evo-graphite text-white;
+  }
+  .btn-d:hover {
+    @apply -translate-y-px bg-evo-mint-900;
+  }
+  .btn-s {
+    @apply border border-line bg-transparent text-fg;
+  }
+  .btn-s:hover {
+    @apply border-evo-mint bg-white;
+  }
+  .btn-w {
+    @apply bg-white text-evo-graphite;
+  }
+  .btn-w:hover {
+    @apply bg-evo-graphite text-white;
+  }
+  .btn .arr {
+    @apply inline-flex transition-transform duration-200;
+  }
+  .btn:hover .arr {
+    @apply translate-x-1;
+  }
+
+  /* ----- placeholder image atom ----- */
+  .ph {
+    @apply relative overflow-hidden;
+  }
+  .ph::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(27, 53, 48, 0.18));
+  }
+}
+
+/* small shared svg helpers */
+.tooth-line {
+  fill: none;
+  stroke: var(--color-evo-mint-700);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ------------------------------------------------------------
+   PAGE TRANSITIONS — cross-fade con leve desplazamiento vertical.
+   Se aplica vía el ClientRouter (View Transitions) de Astro.
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) {
+    animation: evo-fade-out 0.28s var(--ease-out) both;
+  }
+  ::view-transition-new(root) {
+    animation: evo-fade-in 0.42s var(--ease-out) both;
+  }
+}
+
+@keyframes evo-fade-out {
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes evo-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}

@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { privacidadSeo } from '../seo';
+import { PRIVACY } from '../constants/legal';
+import LegalDoc from '../components/sections/legal/LegalDoc.astro';
+---
+
+<Layout meta={privacidadSeo}>
+  <LegalDoc eyebrow="Legal" title="Política de" titleEm="Privacidad." doc={PRIVACY} />
+</Layout>

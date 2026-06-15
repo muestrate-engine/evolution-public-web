@@ -1,0 +1,122 @@
+---
+import { NAV_LINKS } from '../../constants/navigation';
+import { SITE } from '../../constants/site';
+import BrandLockup from '../ui/BrandLockup.astro';
+import Icon from '../Icon.astro';
+
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path.startsWith(href);
+---
+
+<header class="sticky top-0 z-[60] border-b border-line/55 bg-evo-bone/80 backdrop-blur-xl">
+  <div class="wrap flex items-center justify-between gap-6 py-4">
+    <BrandLockup />
+
+    <nav class="hidden gap-8 lg:flex">
+      {
+        NAV_LINKS.map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              'text-[14.5px] transition-colors duration-200 hover:text-evo-mint-700',
+              isActive(link.href) ? 'text-evo-mint-700' : 'text-fg',
+            ]}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a
+        href={SITE.phoneHref}
+        class="hidden items-center gap-2 text-[13px] font-medium text-fg-2 md:flex"
+      >
+        <Icon name="phone" size={14} strokeWidth={2} class="text-evo-mint-700" />
+        {SITE.phone}
+      </a>
+      <a
+        href="/contacto"
+        class="hidden items-center gap-2.5 rounded-full bg-evo-graphite px-[22px] py-3 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-px hover:bg-evo-mint-800 hover:shadow-[0_10px_24px_-10px_rgba(46,86,79,0.4)] sm:inline-flex"
+      >
+        <span class="h-1.5 w-1.5 rounded-full bg-evo-mint"></span>Agenda tu cita
+      </a>
+
+      <!-- Botón hamburguesa (solo móvil/tablet) -->
+      <button
+        id="menu-btn"
+        type="button"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        class="flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white text-evo-graphite transition-colors hover:border-evo-mint lg:hidden"
+      >
+        <svg class="menu-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+        <svg class="menu-close hidden" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Panel de navegación móvil -->
+  <div id="mobile-menu" class="hidden border-t border-line/55 bg-evo-bone/95 backdrop-blur-xl lg:hidden">
+    <nav class="wrap flex flex-col py-3">
+      {
+        NAV_LINKS.map((link) => (
+          <a
+            href={link.href}
+            data-menu-link
+            class:list={[
+              'border-b border-line/40 py-3.5 text-[16px] transition-colors last:border-b-0 hover:text-evo-mint-700',
+              isActive(link.href) ? 'font-medium text-evo-mint-700' : 'text-fg',
+            ]}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <div class="mt-4 flex flex-col gap-2.5">
+        <a
+          href={SITE.phoneHref}
+          class="flex items-center gap-2 text-[14px] font-medium text-fg-2"
+        >
+          <Icon name="phone" size={15} strokeWidth={2} class="text-evo-mint-700" />
+          {SITE.phone}
+        </a>
+        <a
+          href="/contacto"
+          data-menu-link
+          class="inline-flex items-center justify-center gap-2.5 rounded-full bg-evo-graphite px-[22px] py-3.5 text-sm font-medium text-white"
+        >
+          <span class="h-1.5 w-1.5 rounded-full bg-evo-mint"></span>Agenda tu cita
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  function setupMobileMenu() {
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+
+    const open = btn.querySelector('.menu-open');
+    const close = btn.querySelector('.menu-close');
+
+    const setOpen = (isOpen: boolean) => {
+      menu.classList.toggle('hidden', !isOpen);
+      open?.classList.toggle('hidden', isOpen);
+      close?.classList.toggle('hidden', !isOpen);
+      btn.setAttribute('aria-expanded', String(isOpen));
+      btn.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+    };
+
+    btn.addEventListener('click', () => setOpen(menu.classList.contains('hidden')));
+    menu.querySelectorAll('[data-menu-link]').forEach((link) =>
+      link.addEventListener('click', () => setOpen(false))
+    );
+  }
+  document.addEventListener('astro:page-load', setupMobileMenu);
+</script>

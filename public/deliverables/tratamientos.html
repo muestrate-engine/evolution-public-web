@@ -1,0 +1,526 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Tratamientos (página)" subtitle="Página Tratamientos — intro, 5 categorías, proceso, casos reales, FAQ, testimonios, CTA" viewport="1280x800" -->
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Tratamientos — Evolution Studio Dental</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<link rel="stylesheet" href="site.css"/>
+<style>
+  /* ====== TRATAMIENTOS — page-specific ====== */
+
+  /* INTRO */
+  .tr-intro { padding: 80px 0 90px; overflow: hidden; }
+  .tr-intro .grid { display: grid; grid-template-columns: 7fr 5fr; gap: 64px; align-items: end; }
+  .tr-intro h1 { font-size: clamp(48px, 6.6vw, 100px); font-weight: 200; letter-spacing: -0.035em; line-height: 0.96; margin: 0 0 28px; color: var(--evo-graphite); }
+  .tr-intro h1 em { font-style: italic; color: var(--evo-mint); font-weight: 200; }
+  .tr-intro p.intro { font-size: 21px; font-weight: 300; line-height: 1.55; color: var(--fg-2); margin: 0; }
+  .tr-intro .side { background: var(--evo-graphite); color: white; border-radius: 28px; padding: 32px; }
+  .tr-intro .side .lbl { font-size: 12px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--evo-mint-300); margin-bottom: 16px; }
+  .tr-intro .side .li { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.1); font-size: 15px; color: rgba(255,255,255,0.85); }
+  .tr-intro .side .li svg { color: var(--evo-mint); flex-shrink: 0; }
+
+  /* CATEGORIAS overview */
+  .cats { padding: 110px 0; background: var(--evo-mint-50); }
+  .cats .catgrid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 48px; }
+  .cat-pill { background: white; border: 1px solid var(--line-soft); border-radius: 24px; padding: 28px 24px; display: flex; flex-direction: column; gap: 14px; text-decoration: none; transition: all 320ms cubic-bezier(0.34,1.2,0.64,1); }
+  .cat-pill:hover { transform: translateY(-4px); box-shadow: 0 24px 48px -16px rgba(46,86,79,0.2); border-color: var(--evo-mint); }
+  .cat-pill .ic { width: 48px; height: 48px; border-radius: 14px; background: var(--evo-mint-50); border: 1px solid var(--evo-mint-100); color: var(--evo-mint-700); display: flex; align-items: center; justify-content: center; }
+  .cat-pill .nm { font-size: 19px; font-weight: 400; letter-spacing: -0.01em; color: var(--evo-graphite); }
+  .cat-pill .ct { font-size: 13px; color: var(--fg-2); line-height: 1.5; }
+  .cat-pill .go { font-size: 13px; font-weight: 500; color: var(--evo-mint-700); margin-top: auto; display: flex; align-items: center; gap: 6px; }
+
+  /* CATEGORY SECTION (alternating) */
+  .cat-sec { padding: 120px 0; }
+  .cat-sec.alt { background: var(--evo-cream); }
+  .cat-sec .layout { display: grid; grid-template-columns: 6fr 6fr; gap: 72px; align-items: center; }
+  .cat-sec.flip .layout { direction: rtl; }
+  .cat-sec.flip .layout > * { direction: ltr; }
+  .cat-sec .art { border-radius: 32px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 30px 60px -24px rgba(46,86,79,0.25); position: relative; }
+  .cat-sec .art img { width: 100%; height: 100%; object-fit: cover; }
+  .cat-sec .art .float-tag { position: absolute; bottom: 22px; left: 22px; padding: 10px 18px; border-radius: 999px; background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--evo-mint-700); }
+  .cat-sec .num-big { font-size: 14px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--evo-mint-600); margin-bottom: 16px; }
+  .cat-sec h2 { font-size: clamp(36px, 4.4vw, 60px); font-weight: 200; letter-spacing: -0.025em; line-height: 1.04; margin: 0 0 20px; color: var(--evo-graphite); }
+  .cat-sec h2 em { font-style: italic; color: var(--evo-mint); }
+  .cat-sec p.desc { font-size: 18px; font-weight: 300; line-height: 1.6; color: var(--fg-2); margin: 0 0 32px; }
+  .cat-sec .svc-list { display: flex; flex-direction: column; gap: 2px; }
+  .cat-sec .svc-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .cat-sec .svc-row:last-child { border-bottom: none; }
+  .cat-sec .svc-row .l { display: flex; align-items: center; gap: 14px; }
+  .cat-sec .svc-row .l .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--evo-mint); flex-shrink: 0; }
+  .cat-sec .svc-row .nm { font-size: 17px; font-weight: 400; color: var(--evo-graphite); letter-spacing: -0.01em; }
+  .cat-sec .svc-row .price { font-size: 15px; font-weight: 500; color: var(--evo-mint-700); white-space: nowrap; }
+
+  /* PROCESO */
+  .proc { padding: 120px 0; background: var(--evo-graphite); color: white; position: relative; overflow: hidden; }
+  .proc::before { content: ""; position: absolute; left: -12%; top: -30%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(152,202,192,0.16), transparent 60%); }
+  .proc .head { text-align: center; max-width: 720px; margin: 0 auto 64px; position: relative; }
+  .proc .head .eyebrow { color: var(--evo-mint); justify-content: center; }
+  .proc .head .eyebrow::before { background: var(--evo-mint); }
+  .proc .head h2 { font-size: clamp(36px, 4.4vw, 60px); font-weight: 200; letter-spacing: -0.025em; line-height: 1.05; margin: 0; color: white; }
+  .proc .head h2 em { font-style: italic; color: var(--evo-mint); }
+  .proc .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; position: relative; }
+  .proc .pstep { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 32px 28px; }
+  .proc .pstep .n { width: 48px; height: 48px; border-radius: 50%; background: rgba(152,202,192,0.16); border: 1px solid rgba(152,202,192,0.3); color: var(--evo-mint); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 300; margin-bottom: 18px; }
+  .proc .pstep h4 { font-size: 20px; font-weight: 400; letter-spacing: -0.01em; margin: 0 0 8px; color: white; }
+  .proc .pstep p { font-size: 14.5px; line-height: 1.55; color: rgba(255,255,255,0.6); margin: 0; }
+
+  /* CASOS REALES */
+  .casos { padding: 120px 0; background: var(--bg); }
+  .casos .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+  .caso { background: white; border: 1px solid var(--line); border-radius: 28px; overflow: hidden; }
+  .caso .ba { display: grid; grid-template-columns: 1fr 1fr; position: relative; }
+  .caso .ba .half { aspect-ratio: 1; position: relative; overflow: hidden; }
+  .caso .ba .half img { width: 100%; height: 100%; object-fit: cover; }
+  .caso .ba .half .tag { position: absolute; top: 16px; left: 16px; padding: 6px 14px; border-radius: 999px; font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; }
+  .caso .ba .half.antes .tag { background: rgba(255,255,255,0.92); color: var(--fg-2); }
+  .caso .ba .half.despues .tag { background: var(--evo-mint); color: var(--evo-mint-900); }
+  .caso .ba .divider { position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: white; transform: translateX(-50%); z-index: 2; }
+  .caso .info { padding: 28px 30px; }
+  .caso .info .cat { font-size: 12px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--evo-mint-700); }
+  .caso .info h4 { font-size: 24px; font-weight: 300; letter-spacing: -0.015em; margin: 8px 0 8px; color: var(--evo-graphite); }
+  .caso .info p { font-size: 15px; line-height: 1.6; color: var(--fg-2); margin: 0; }
+  .caso .info .meta { display: flex; gap: 16px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; color: var(--fg-3); }
+  .caso .info .meta strong { color: var(--evo-mint-700); font-weight: 500; }
+
+  /* FAQ */
+  .faq { padding: 120px 0; background: var(--evo-mint-50); }
+  .faq .layout { display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: start; }
+  .faq .intro-col { position: sticky; top: 110px; }
+  .faq-list { display: flex; flex-direction: column; gap: 10px; }
+  .faq details { background: white; border-radius: 18px; padding: 24px 28px; border: 1px solid var(--line-soft); transition: all 240ms; }
+  .faq details[open] { border-color: var(--evo-mint-300); box-shadow: var(--shadow-sm); }
+  .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 18px; font-weight: 400; letter-spacing: -0.01em; color: var(--evo-graphite); }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary .tg { width: 32px; height: 32px; border-radius: 50%; background: var(--evo-mint-50); display: flex; align-items: center; justify-content: center; color: var(--evo-mint-700); transition: transform 240ms; flex-shrink: 0; }
+  .faq details[open] summary .tg { background: var(--evo-mint); color: var(--evo-mint-900); transform: rotate(45deg); }
+  .faq details p { margin: 16px 0 0; font-size: 16px; line-height: 1.6; color: var(--fg-2); }
+
+  @media (max-width: 1024px) {
+    .tr-intro .grid { grid-template-columns: 1fr; gap: 48px; }
+    .cats .catgrid { grid-template-columns: 1fr 1fr; }
+    .cat-sec .layout, .faq .layout { grid-template-columns: 1fr; gap: 44px; }
+    .cat-sec.flip .layout { direction: ltr; }
+    .proc .steps { grid-template-columns: 1fr 1fr; }
+    .casos .grid { grid-template-columns: 1fr; }
+    .faq .intro-col { position: relative; top: 0; }
+  }
+  @media (max-width: 720px) {
+    .cats .catgrid { grid-template-columns: 1fr; }
+    .proc .steps { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================ HEADER ============================ -->
+<header class="site">
+  <div class="wrap row">
+    <a href="website.html" class="brand">
+      <img src="../assets/evolution-mark.svg" alt=""/>
+      <div>
+        <div class="w">evolution</div>
+        <div class="s">studio dental</div>
+      </div>
+    </a>
+    <nav class="main">
+      <a href="nosotros.html">Nosotros</a>
+      <a href="tratamientos.html" style="color:var(--evo-mint-700);">Tratamientos</a>
+      <a href="equipo.html">Equipo</a>
+      <a href="testimonios.html">Testimonios</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="hdr-right">
+      <span class="hdr-phone">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +51 999 000 000
+      </span>
+      <a href="website.html#cta" class="hdr-cta"><span class="dot"></span>Agenda tu cita</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ 1. INTRODUCCION ============================ -->
+<section class="tr-intro">
+  <img class="water" src="../assets/evolution-mark.svg" alt="" style="position:absolute;right:-180px;top:-120px;width:580px;opacity:0.06;pointer-events:none;"/>
+  <div class="wrap grid">
+    <div>
+      <div class="eyebrow">Tratamientos</div>
+      <h1>Todo lo que tu sonrisa<br/>necesita, <em>en un solo lugar.</em></h1>
+      <p class="intro">Desde una limpieza hasta un diseño completo de sonrisa. Cada tratamiento se explica con calma, con precios claros desde el inicio y al ritmo que tú elijas.</p>
+    </div>
+    <div class="side">
+      <div class="lbl">Por qué Evolution</div>
+      <div class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>Estimado claro antes de empezar</div>
+      <div class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>Sedación consciente disponible</div>
+      <div class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>Cuotas sin intereses</div>
+      <div class="li"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>Seguimiento a los 3 días</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 2. CATEGORIAS ============================ -->
+<section class="cats">
+  <div class="wrap">
+    <div class="eyebrow">Categorías</div>
+    <h2 class="h-section">Cinco áreas,<br/>un mismo <em>cuidado.</em></h2>
+    <div class="catgrid">
+      <a href="#estetica" class="cat-pill">
+        <div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 9 9l-7 .5L8 14l-2 8 6-4 6 4-2-8 6-4.5-7-.5-3-7z"/></svg></div>
+        <div class="nm">Estética dental</div>
+        <div class="ct">Carillas, blanqueamiento y diseño de sonrisa.</div>
+        <div class="go">Ver más <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+      </a>
+      <a href="#ortodoncia" class="cat-pill">
+        <div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 9 4-18 3 9h4"/></svg></div>
+        <div class="nm">Ortodoncia</div>
+        <div class="ct">Brackets estéticos y alineadores invisibles.</div>
+        <div class="go">Ver más <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+      </a>
+      <a href="#general" class="cat-pill">
+        <div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/></svg></div>
+        <div class="nm">Odontología general</div>
+        <div class="ct">Limpieza, resinas, endodoncia y más.</div>
+        <div class="go">Ver más <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+      </a>
+      <a href="#pediatria" class="cat-pill">
+        <div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="7"/><path d="M8 9h.01M16 9h.01M9 13s1 1.5 3 1.5 3-1.5 3-1.5"/></svg></div>
+        <div class="nm">Odontopediatría</div>
+        <div class="ct">Primera cita y cuidado para los más pequeños.</div>
+        <div class="go">Ver más <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+      </a>
+      <a href="#encias" class="cat-pill">
+        <div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.6a5.5 5.5 0 0 0-7.78 0L12 5.66l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <div class="nm">Salud de encías</div>
+        <div class="ct">Periodoncia y tratamiento de encías.</div>
+        <div class="go">Ver más <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 3. ESTETICA DENTAL ============================ -->
+<section class="cat-sec" id="estetica">
+  <div class="wrap layout">
+    <div class="art">
+      <img src="assets/trat-estetica.jpg" alt="Estética dental"/>
+      <div class="float-tag">Estética dental</div>
+    </div>
+    <div>
+      <div class="num-big">Categoría 01</div>
+      <h2>Diseñamos la sonrisa<br/><em>que siempre quisiste.</em></h2>
+      <p class="desc">La estética dental no es vanidad — es volver a sentirte tú. Trabajamos con simulación digital para que veas tu nueva sonrisa antes de empezar.</p>
+      <div class="svc-list">
+        <div class="svc-row"><div class="l"><span class="dot"></span><span class="nm">Diseño de sonrisa digital</span></div><span class="price">Desde S/ 1,800</span></div>
+        <div class="svc-row"><div class="l"><span class="dot"></span><span class="nm">Carillas de porcelana</span></div><span class="price">Desde S/ 900 c/u</span></div>
+        <div class="svc-row"><div class="l"><span class="dot"></span><span class="nm">Blanqueamiento profesional</span></div><span class="price">Desde S/ 350</span></div>
+        <div class="svc-row"><div class="l"><span class="dot"></span><span class="nm">Resinas estéticas</span></div><span class="price">Desde S/ 120</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 4. ORTODONCIA ============================ -->
+<section class="cat-sec alt flip" id="ortodoncia">
+  <div class="wrap layout">
+    <div class="art">
+      <img src="assets/trat-ortodoncia.jpg" alt="Ortodoncia"/>
+      <div class="float-tag">Ortodoncia</div>
+    </div>
+    <div>
+      <div class="num-big">Categoría 02</div>
+      <h2>Alinear tus dientes,<br/>sin que <em>se note.</em></h2>
+      <p class="desc">Desde brackets estéticos hasta alineadores transparentes que casi nadie verá. Ortodoncia pensada también para adultos que creían que ya era tarde.</p>
+      <div class="svc-list">
+        <div class="svc-row"><div class="l"><span class="dot"></span><span class="nm">Alineadores invisibles</span></div><span class="price">Desde S/ 4,500</span></div>
+        <div class="svc-row"><div class="l"><span class="dot"></span><span class="nm">Brackets estéticos</span></div><span class="price">Desde S/ 2,400</span></div>
+        <div class="svc-row"><div class="l"><span class="dot"></span><span class="nm">Brackets metálicos</span></div><span class="price">Desde S/ 1,900</span></div>
+        <div class="svc-row"><div class="l"><span class="dot"></span><span class="nm">Retenedores</span></div><span class="price">Desde S/ 280</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 5. ODONTOLOGIA GENERAL ============================ -->
+<section class="cat-sec" id="general">
+  <div class="wrap layout">
+    <div class="art">
+      <img src="assets/trat-general.jpg" alt="Odontología general"/>
+      <div class="float-tag">Odontología general</div>
+    </div>
+    <div>
+      <div class="num-big">Categoría 03</div>
+      <h2>La base de todo:<br/>una boca <em>sana.</em></h2>
+      <p class="desc">Lo esencial, hecho con el mismo cuidado que lo complejo. Aquí empieza casi todo el mundo — con una limpieza y una conversación honesta.</p>
+      <div class="svc-list">
+        <div class="svc-row"><div class="l"><span class="dot"></span><span class="nm">Limpieza profunda + profilaxis</span></div><span class="price">Desde S/ 80</span></div>
+        <div class="svc-row"><div class="l"><span class="dot"></span><span class="nm">Endodoncia (tratamiento de raíz)</span></div><span class="price">Desde S/ 380</span></div>
+        <div class="svc-row"><div class="l"><span class="dot"></span><span class="nm">Extracciones</span></div><span class="price">Desde S/ 150</span></div>
+        <div class="svc-row"><div class="l"><span class="dot"></span><span class="nm">Prótesis fijas y removibles</span></div><span class="price">Desde S/ 600</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 6. ODONTOPEDIATRIA ============================ -->
+<section class="cat-sec alt flip" id="pediatria">
+  <div class="wrap layout">
+    <div class="art">
+      <img src="assets/trat-pediatria.jpg" alt="Odontopediatría"/>
+      <div class="float-tag">Odontopediatría</div>
+    </div>
+    <div>
+      <div class="num-big">Categoría 04</div>
+      <h2>Su primera visita,<br/>una <em>buena experiencia.</em></h2>
+      <p class="desc">Atendemos niños desde los 5 años con un protocolo especial: sin sustos, con juegos y mucha paciencia. Una buena primera vez dura toda la vida.</p>
+      <div class="svc-list">
+        <div class="svc-row"><div class="l"><span class="dot"></span><span class="nm">Primera cita del peque</span></div><span class="price">Desde S/ 70</span></div>
+        <div class="svc-row"><div class="l"><span class="dot"></span><span class="nm">Sellantes preventivos</span></div><span class="price">Desde S/ 90</span></div>
+        <div class="svc-row"><div class="l"><span class="dot"></span><span class="nm">Aplicación de flúor</span></div><span class="price">Desde S/ 60</span></div>
+        <div class="svc-row"><div class="l"><span class="dot"></span><span class="nm">Curaciones infantiles</span></div><span class="price">Desde S/ 110</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 7. SALUD DE ENCIAS ============================ -->
+<section class="cat-sec" id="encias">
+  <div class="wrap layout">
+    <div class="art">
+      <img src="assets/trat-encias.jpg" alt="Salud de encías"/>
+      <div class="float-tag">Salud de encías</div>
+    </div>
+    <div>
+      <div class="num-big">Categoría 05</div>
+      <h2>Encías sanas,<br/>sonrisa <em>que dura.</em></h2>
+      <p class="desc">La salud de tus encías es la base de todo lo demás. Detectamos y tratamos a tiempo para que tus dientes te acompañen muchos años más.</p>
+      <div class="svc-list">
+        <div class="svc-row"><div class="l"><span class="dot"></span><span class="nm">Evaluación periodontal</span></div><span class="price">Sin costo</span></div>
+        <div class="svc-row"><div class="l"><span class="dot"></span><span class="nm">Tratamiento de gingivitis</span></div><span class="price">Desde S/ 180</span></div>
+        <div class="svc-row"><div class="l"><span class="dot"></span><span class="nm">Curetaje / raspado</span></div><span class="price">Desde S/ 250</span></div>
+        <div class="svc-row"><div class="l"><span class="dot"></span><span class="nm">Cirugía periodontal</span></div><span class="price">Desde S/ 500</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 8. PROCESO DE ATENCION ============================ -->
+<section class="proc">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Proceso de atención</div>
+      <h2>Sin sorpresas, <em>de principio a fin.</em></h2>
+    </div>
+    <div class="steps">
+      <div class="pstep"><div class="n">1</div><h4>Conversación</h4><p>Nos escribes por WhatsApp, te damos un estimado claro y agendamos.</p></div>
+      <div class="pstep"><div class="n">2</div><h4>Evaluación</h4><p>Revisamos tu boca con calma y te explicamos todo en palabras simples.</p></div>
+      <div class="pstep"><div class="n">3</div><h4>Tu plan</h4><p>Te proponemos opciones con precios. Tú decides el ritmo y el alcance.</p></div>
+      <div class="pstep"><div class="n">4</div><h4>Tratamiento</h4><p>Trabajamos sin prisa, con sedación si la necesitas, y seguimiento a los 3 días.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 9. CASOS REALES ============================ -->
+<section class="casos">
+  <div class="wrap">
+    <div class="eyebrow">Casos reales</div>
+    <h2 class="h-section">Antes y después,<br/>de <em>pacientes reales.</em></h2>
+    <div class="grid">
+      <div class="caso">
+        <div class="ba">
+          <div class="half antes"><img src="assets/caso1-antes.jpg" alt="Antes"/><span class="tag">Antes</span></div>
+          <div class="half despues"><img src="assets/caso1-despues.jpg" alt="Después"/><span class="tag">Después</span></div>
+          <div class="divider"></div>
+        </div>
+        <div class="info">
+          <div class="cat">Diseño de sonrisa</div>
+          <h4>8 carillas de porcelana</h4>
+          <p>María llegó pidiendo "algo natural, que no se note". Rediseñamos su sonrisa respetando su forma de cara.</p>
+          <div class="meta"><span><strong>3 sesiones</strong></span><span>·</span><span>Sin dolor</span><span>·</span><span>abr 2026</span></div>
+        </div>
+      </div>
+      <div class="caso">
+        <div class="ba">
+          <div class="half antes"><img src="assets/caso2-antes.jpg" alt="Antes"/><span class="tag">Antes</span></div>
+          <div class="half despues"><img src="assets/caso2-despues.jpg" alt="Después"/><span class="tag">Después</span></div>
+          <div class="divider"></div>
+        </div>
+        <div class="info">
+          <div class="cat">Ortodoncia + blanqueamiento</div>
+          <h4>Alineadores invisibles</h4>
+          <p>Diego creía que a los 38 ya era tarde. 11 meses de alineadores y un blanqueamiento final lo demostraron lo contrario.</p>
+          <div class="meta"><span><strong>11 meses</strong></span><span>·</span><span>Invisible</span><span>·</span><span>mar 2026</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 10. FAQ ============================ -->
+<section class="faq">
+  <div class="wrap layout">
+    <div class="intro-col">
+      <div class="eyebrow">Preguntas frecuentes</div>
+      <h2 class="h-section">Lo que quizás<br/><em>te preguntas.</em></h2>
+      <p class="lead" style="margin-top:24px;">¿Otra duda? Escríbenos por WhatsApp — respondemos en menos de 30 minutos.</p>
+      <a href="website.html#cta" class="btn btn-d" style="margin-top:28px;">Escribir por WhatsApp <span class="arr"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></a>
+    </div>
+    <div class="faq-list">
+      <details open>
+        <summary>¿Los tratamientos duelen?<span class="tg"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <p>Trabajamos con técnicas suaves y, cuando hace falta, anestesia y sedación consciente. Si en algún momento sientes incomodidad, paramos. Sin preguntas.</p>
+      </details>
+      <details>
+        <summary>¿Puedo pagar en cuotas?<span class="tg"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <p>Sí. Aceptamos efectivo, Yape, Plin, transferencias y tarjetas. Para tratamientos mayores ofrecemos planes en cuotas sin intereses.</p>
+      </details>
+      <details>
+        <summary>¿La evaluación tiene costo?<span class="tg"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <p>La evaluación inicial es sin costo cuando viene incluida en el paquete Sonrisa Fresh. Te enviamos el detalle por WhatsApp antes de tu cita.</p>
+      </details>
+      <details>
+        <summary>¿Cuánto dura un diseño de sonrisa?<span class="tg"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <p>Entre 3 y 5 sesiones según el caso. Empezamos con una simulación digital para que apruebes el resultado antes de tocar un solo diente.</p>
+      </details>
+      <details>
+        <summary>¿Atienden niños?<span class="tg"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <p>Sí, desde los 5 años. Tenemos un protocolo especial para que su primera experiencia sea tranquila y hasta divertida.</p>
+      </details>
+      <details>
+        <summary>¿Cada cuánto debo hacerme una limpieza?<span class="tg"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <p>Recomendamos cada 6 meses. En tu cita te decimos exactamente cuándo volver, según la salud de tus encías.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 11. TESTIMONIOS ============================ -->
+<section class="reviews" id="testimonios">
+  <div class="wrap">
+    <div class="reviews-head">
+      <div>
+        <div class="eyebrow">Pacientes felices</div>
+        <h2 class="h-section">Lo que dicen<br/><em>quienes ya pasaron por aquí.</em></h2>
+      </div>
+      <div class="gscore">
+        <div class="big">4.9</div>
+        <div class="meta-r">
+          <div class="stars">
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          </div>
+          <div class="src">Basado en 800+ reseñas en Google Maps</div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review">
+        <div class="stars"><svg viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
+        <div class="text">"Llegué con miedo. Salí con una sonrisa que <em>no reconocía como mía.</em> El trato es algo aparte — me explicaron cada paso, sin prisa."</div>
+        <div class="who"><div class="av">M</div><div><div class="name">María Fernández</div><div class="meta">Diseño de sonrisa · abr 2026</div></div><svg class="gicon" viewBox="0 0 48 48"><path fill="#4285f4" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#34a853" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#fbbc05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#ea4335" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></div>
+      </div>
+      <div class="review">
+        <div class="stars"><svg viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
+        <div class="text">"Me explicaron cada paso sin que tuviera que preguntar. <em>Por primera vez no sentí ansiedad</em> en una limpieza. El studio es luminoso y huele a flores."</div>
+        <div class="who"><div class="av">D</div><div><div class="name">Diego Salazar</div><div class="meta">Limpieza · mar 2026</div></div><svg class="gicon" viewBox="0 0 48 48"><path fill="#4285f4" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#34a853" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#fbbc05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#ea4335" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></div>
+      </div>
+      <div class="review">
+        <div class="stars"><svg viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
+        <div class="text">"El studio es precioso, pero lo que más me sorprendió fue <em>el seguimiento.</em> Me escribieron a los tres días para ver cómo estaba. Eso no lo había vivido nunca."</div>
+        <div class="who"><div class="av">V</div><div><div class="name">Valeria Cortez</div><div class="meta">Blanqueamiento · feb 2026</div></div><svg class="gicon" viewBox="0 0 48 48"><path fill="#4285f4" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#34a853" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#fbbc05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#ea4335" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 12. CTA FINAL ============================ -->
+<section class="cta" id="cta">
+  <div class="wrap inner">
+    <div>
+      <div class="eyebrow">Conversemos</div>
+      <h2>¿No sabes por dónde<br/><em>empezar?</em></h2>
+      <p class="lead" style="margin-top:32px;max-width:540px;">Cuéntanos qué te gustaría mejorar de tu sonrisa y te recomendamos el tratamiento ideal — con un estimado claro, sin compromiso. Te respondemos en minutos.</p>
+      <div style="margin-top:36px;display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="#" class="btn btn-p">Escribir por WhatsApp <span class="arr"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></a>
+        <a href="website.html" class="btn" style="background:transparent;color:white;border:1px solid rgba(255,255,255,0.2);">Volver al inicio</a>
+      </div>
+    </div>
+    <div class="cta-card">
+      <div class="lbl">Reserva express</div>
+      <div class="nm">Evaluación + limpieza<br/>desde S/ 80</div>
+      <div class="row"><div class="ic"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>60 minutos · sin prisa</div>
+      <div class="row"><div class="ic"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>Sin costo de evaluación</div>
+      <div class="row"><div class="ic"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.6a5.5 5.5 0 0 0-7.78 0L12 5.66l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>Plan personalizado al final</div>
+      <a href="#" class="btn btn-w" style="margin-top:8px;justify-content:center;">Reservar ahora</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="site">
+  <div class="wrap">
+    <div class="top">
+      <div class="brand-foot">
+        <div class="lockup">
+          <img src="../assets/evolution-mark.svg" alt=""/>
+          <div>
+            <div class="w">evolution</div>
+            <div class="s">studio dental</div>
+          </div>
+        </div>
+        <p>Cuidamos tu sonrisa con elegancia, confianza y sin miedo. Donde tu sonrisa evoluciona.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h5>Tratamientos</h5>
+        <ul>
+          <li><a href="#estetica">Estética dental</a></li>
+          <li><a href="#ortodoncia">Ortodoncia</a></li>
+          <li><a href="#general">Odontología general</a></li>
+          <li><a href="#pediatria">Odontopediatría</a></li>
+          <li><a href="#encias">Salud de encías</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Studio</h5>
+        <ul>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="equipo.html">Equipo</a></li>
+          <li><a href="testimonios.html">Testimonios</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="#">Trabaja con nosotros</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="#">+51 999 000 000</a></li>
+          <li><a href="#">hola@evolutiondental.pe</a></li>
+          <li>Av. Primavera 1234</li>
+          <li>San Borja, Lima</li>
+          <li>Lun–Sáb · 9:00–19:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <div>© 2026 Evolution Studio Dental — Tu sonrisa, en su mejor versión.</div>
+      <div class="legal"><a href="#">Privacidad</a><a href="#">Términos</a><a href="#">Política dental</a></div>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8z"/></svg>
+</a>
+
+</body>
+</html>

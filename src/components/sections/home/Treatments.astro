@@ -1,0 +1,153 @@
+---
+import { TREATMENTS, TREATMENT_TABS } from '../../../constants/treatments';
+import Icon from '../../Icon.astro';
+---
+
+<section id="tratamientos" class="relative overflow-hidden bg-evo-mint-50 py-20 md:py-[130px]">
+  <div
+    class="pointer-events-none absolute -right-[8%] -top-[10%] h-[520px] w-[520px]"
+    style="background: radial-gradient(circle, rgba(152,202,192,0.4), transparent 60%);"
+  >
+  </div>
+
+  <div class="wrap relative">
+    <div class="mb-14 flex flex-wrap items-end justify-between gap-10">
+      <div>
+        <div class="eyebrow">Tratamientos</div>
+        <h2 class="h-section">Cuidado dental,<br />de <em>principio a fin.</em></h2>
+        <p class="lead mt-6">
+          Desde una limpieza hasta un diseño completo de sonrisa. Todo bajo el mismo techo, con el
+          mismo cuidado.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-1.5 rounded-full border border-line bg-white p-1.5" id="tt-tabs">
+        {
+          TREATMENT_TABS.map((tab, i) => (
+            <button
+              data-cat={tab.value}
+              class:list={[
+                'rounded-full px-[18px] py-2.5 text-[13.5px] font-medium tracking-[-0.005em] transition-all duration-200',
+                i === 0 ? 'bg-evo-graphite text-white' : 'bg-transparent text-fg-2',
+              ]}
+            >
+              {tab.label}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-[18px] lg:grid-cols-6 lg:[grid-auto-rows:minmax(220px,auto)]" id="tt-grid">
+      {
+        TREATMENTS.map((t) => {
+          const isFeat = t.variant === 'feat';
+          const isDark = t.variant === 'dark';
+          return (
+            <article
+              data-cat={t.category}
+              class:list={[
+                'tt-card group flex cursor-pointer flex-col gap-3.5 rounded-[28px] transition-all duration-300 col-span-2',
+                isFeat &&
+                  'bg-evo-mint text-evo-mint-900 p-10 lg:col-span-4 lg:row-span-2',
+                isDark && 'bg-evo-graphite text-white p-9 lg:col-span-4',
+                !isFeat && !isDark &&
+                  'border border-line-soft bg-white p-7 hover:-translate-y-1 hover:border-evo-mint hover:shadow-[0_24px_48px_-16px_rgba(46,86,79,0.2)] lg:col-span-2',
+              ]}
+            >
+              <div class="flex items-start justify-between">
+                {isFeat || isDark ? (
+                  <div>
+                    <div
+                      class:list={[
+                        'text-xs font-medium uppercase tracking-[0.24em]',
+                        isFeat ? 'text-evo-mint-900/60' : 'text-evo-mint-300/70',
+                      ]}
+                    >
+                      {t.number}
+                    </div>
+                    <div
+                      class:list={[
+                        'mt-3.5 flex h-11 w-11 items-center justify-center rounded-[14px]',
+                        isFeat
+                          ? 'border border-white/50 bg-white/40 text-evo-mint-900'
+                          : 'border border-evo-mint/30 bg-evo-mint/[0.18] text-evo-mint',
+                      ]}
+                    >
+                      <Icon name={t.icon} size={20} />
+                    </div>
+                  </div>
+                ) : (
+                  <div class="flex h-11 w-11 items-center justify-center rounded-[14px] border border-evo-mint-100 bg-evo-mint-50 text-evo-mint-700">
+                    <Icon name={t.icon} size={20} />
+                  </div>
+                )}
+                {isFeat && (
+                  <div class="flex h-11 w-11 items-center justify-center rounded-[14px] border border-white/50 bg-white/40 text-evo-mint-900">
+                    <Icon name="arrow-right" size={16} strokeWidth={2} />
+                  </div>
+                )}
+                {!isFeat && !isDark && <div class="text-xs font-medium uppercase tracking-[0.24em] text-evo-mint-700">{t.number}</div>}
+              </div>
+
+              <h3
+                class:list={[
+                  'm-0 tracking-[-0.018em]',
+                  isFeat ? 'text-[44px] font-extralight leading-[1.05]' : isDark ? 'text-4xl font-extralight' : 'text-[26px] font-light',
+                ]}
+              >
+                {t.title}
+              </h3>
+              <p
+                class:list={[
+                  'm-0 leading-[1.55]',
+                  isFeat ? 'text-[17px] text-evo-mint-900/85' : isDark ? 'text-base text-white/70' : 'text-[14.5px] text-fg-2',
+                ]}
+              >
+                {t.description}
+              </p>
+
+              {t.meta ? (
+                <div
+                  class:list={[
+                    'mt-auto flex gap-3 border-t pt-3 text-xs',
+                    isFeat ? 'border-evo-mint-900/[0.18] text-evo-mint-900/65' : 'border-white/20 text-white/60',
+                  ]}
+                >
+                  <strong class="font-medium">{t.priceFrom}</strong>
+                  {t.meta.map((m) => (
+                    <span>· {m}</span>
+                  ))}
+                </div>
+              ) : (
+                <div class="text-[13px] font-medium text-evo-mint-700">{t.priceFrom}</div>
+              )}
+            </article>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  function setupTreatmentTabs() {
+    const tabs = document.getElementById('tt-tabs');
+    if (!tabs) return;
+    const cards = Array.from(document.querySelectorAll<HTMLElement>('#tt-grid .tt-card'));
+    tabs.querySelectorAll<HTMLButtonElement>('button').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        tabs.querySelectorAll('button').forEach((b) => {
+          b.classList.remove('bg-evo-graphite', 'text-white');
+          b.classList.add('bg-transparent', 'text-fg-2');
+        });
+        btn.classList.add('bg-evo-graphite', 'text-white');
+        btn.classList.remove('bg-transparent', 'text-fg-2');
+        const cat = btn.dataset.cat;
+        cards.forEach((card) => {
+          card.style.display = cat === 'todos' || card.dataset.cat === cat ? '' : 'none';
+        });
+      });
+    });
+  }
+  document.addEventListener('astro:page-load', setupTreatmentTabs);
+</script>

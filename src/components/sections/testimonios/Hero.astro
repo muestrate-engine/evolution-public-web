@@ -1,0 +1,58 @@
+---
+import { TS_RATING_BARS } from '../../../constants/testimonios-page';
+import Button from '../../ui/Button.astro';
+import Icon from '../../Icon.astro';
+---
+
+<section class="relative overflow-hidden py-20 pb-[92px]">
+  <img
+    src="/img/brand/evolution-mark.svg"
+    alt=""
+    class="pointer-events-none absolute -left-[180px] -top-[120px] w-[560px] opacity-[0.06]"
+  />
+  <div class="wrap grid grid-cols-1 items-end gap-16 lg:grid-cols-[7fr_5fr]">
+    <div>
+      <div class="eyebrow">Testimonios</div>
+      <h1 class="m-0 mb-7 text-[clamp(48px,7vw,104px)] font-extralight leading-[0.96] tracking-[-0.035em] text-evo-graphite">
+        Las palabras<br />de <em class="font-extralight not-italic text-evo-mint">quienes ya sonríen.</em>
+      </h1>
+      <p class="m-0 max-w-[560px] text-[22px] font-light leading-[1.55] text-fg-2">
+        Más de 800 personas confiaron su sonrisa a Evolution. Estas son sus historias — sin filtros,
+        sin ediciones, tal como las dejaron en Google.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-3.5">
+        <Button href="/contacto" variant="p" arrow>Agenda tu valoración</Button>
+        <Button href="#por-tratamiento" variant="s">Ver opiniones</Button>
+      </div>
+    </div>
+
+    <div class="rounded-[28px] border border-line bg-white px-[34px] pb-[30px] pt-[34px] shadow-[0_24px_50px_-28px_rgba(46,86,79,0.22)]">
+      <div class="flex items-center gap-3">
+        <Icon name="google" size={26} />
+        <span class="text-sm font-medium tracking-[-0.01em] text-fg">Reseñas de Google</span>
+      </div>
+      <div class="mt-[22px] flex items-baseline gap-2.5">
+        <div class="text-[64px] font-extralight leading-none tracking-[-0.03em] text-evo-graphite">
+          4.9<span class="text-[26px] font-extralight text-fg-3">/5</span>
+        </div>
+      </div>
+      <div class="mt-3.5 flex gap-1">
+        {Array.from({ length: 5 }).map(() => <Icon name="star" size={20} class="fill-evo-mint" />)}
+      </div>
+      <div class="mt-3.5 text-[13px] text-fg-2">Basado en 812 reseñas verificadas</div>
+      <div class="mt-[22px] flex flex-col gap-[9px] border-t border-line pt-[22px]">
+        {
+          TS_RATING_BARS.map((bar) => (
+            <div class="grid grid-cols-[14px_1fr_34px] items-center gap-3">
+              <div class="text-right text-xs text-fg-3">{bar.stars}</div>
+              <div class="h-1.5 overflow-hidden rounded-full bg-evo-mint-50">
+                <div class="h-full rounded-full bg-evo-mint" style={`width:${bar.pct}%`} />
+              </div>
+              <div class="text-right text-[11px] text-fg-2">{bar.pct}%</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

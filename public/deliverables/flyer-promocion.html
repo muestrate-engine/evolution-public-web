@@ -1,0 +1,145 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Flyer · Promoción" subtitle="Two square posts: limpieza promo + Sonrisa Blanca paquete" viewport="1100x1100" -->
+<html lang="es"><head><meta charset="utf-8"/>
+<title>Evolution — Flyer Promoción</title>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  body { margin:0; padding:40px; background: #EAE5DB; min-height: 100vh; display:flex; gap:40px; flex-wrap:wrap; justify-content:center; align-items:flex-start; }
+  .label { width:100%; text-align:center; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--evo-mint-700); }
+  .post {
+    width: 1080px; height: 1080px;
+    transform: scale(0.46); transform-origin: top center;
+    margin-bottom: -580px;
+    border-radius: 14px; overflow: hidden;
+    box-shadow: 0 30px 80px -30px rgba(46,86,79,0.3);
+    position: relative;
+    font-family: var(--font-sans);
+  }
+
+  /* ============ POST A — Sonríe sin miedo ============ */
+  .a { background: #FAF7F2; color: var(--evo-graphite); padding: 80px; display:flex; flex-direction:column; justify-content:space-between; }
+  .a .petals { position:absolute; inset:0; pointer-events:none; opacity:0.35; }
+  .a .top { display:flex; justify-content:space-between; align-items:flex-start; z-index:2; }
+  .a .word { font-size: 64px; font-weight: 300; letter-spacing: -0.025em; color: var(--evo-mint); line-height: 1; }
+  .a .sub { font-size: 13px; font-weight: 500; letter-spacing: 0.32em; color: var(--evo-mint-600); margin-top: 6px; text-transform: uppercase; }
+  .a .badge { display:inline-flex; align-items:center; gap: 10px; padding: 14px 22px; border-radius: 999px; background: var(--evo-mint); color: #1B3530; font-size: 18px; font-weight: 500; letter-spacing: -0.01em; }
+  .a .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #1B3530; opacity: 0.7; }
+  .a .center { z-index: 2; max-width: 80%; }
+  .a .eyebrow { font-size: 18px; font-weight: 500; letter-spacing: 0.28em; color: var(--evo-mint-700); text-transform: uppercase; margin-bottom: 28px; }
+  .a .head { font-size: 168px; font-weight: 200; letter-spacing: -0.04em; line-height: 0.92; color: var(--evo-graphite); }
+  .a .head em { font-style: italic; font-weight: 200; color: var(--evo-mint); }
+  .a .lead { font-size: 28px; font-weight: 300; line-height: 1.45; color: var(--fg-2); margin-top: 36px; max-width: 640px; }
+  .a .bottom { display:flex; justify-content:space-between; align-items:flex-end; z-index:2; }
+  .a .price-block { display:flex; align-items:baseline; gap: 14px; }
+  .a .price-eyebrow { font-size: 14px; font-weight: 500; letter-spacing: 0.24em; color: var(--evo-mint-700); text-transform: uppercase; }
+  .a .price { font-size: 80px; font-weight: 300; letter-spacing: -0.02em; color: var(--evo-graphite); }
+  .a .price small { font-size: 22px; color: var(--fg-2); margin-left: 4px; font-weight: 400; }
+  .a .cta { display:flex; flex-direction:column; align-items:flex-end; gap: 8px; }
+  .a .handle { font-size: 20px; font-weight: 500; color: var(--evo-mint-700); }
+
+  /* ============ POST B — Servicio premium ============ */
+  .b { background: var(--evo-mint); color: #1B3530; padding: 90px 80px; display:flex; flex-direction:column; justify-content:space-between; }
+  .b .top { display:flex; justify-content:space-between; align-items:flex-start; }
+  .b .lockup-w { font-size: 42px; font-weight: 300; letter-spacing: -0.02em; color: white; line-height: 1; }
+  .b .lockup-s { font-size: 11px; font-weight: 500; letter-spacing: 0.32em; color: rgba(255,255,255,0.85); text-transform: uppercase; margin-top: 6px; }
+  .b .number { font-size: 13px; font-weight: 500; letter-spacing: 0.24em; color: rgba(27,53,48,0.6); text-transform: uppercase; }
+
+  .b .center { display:flex; flex-direction:column; gap: 28px; max-width: 80%; }
+  .b .eye { font-size: 16px; font-weight: 500; letter-spacing: 0.28em; color: rgba(27,53,48,0.7); text-transform: uppercase; }
+  .b .head { font-size: 132px; font-weight: 200; letter-spacing: -0.035em; line-height: 0.95; color: white; }
+  .b .underline { width: 120px; height: 2px; background: rgba(255,255,255,0.5); margin-top: 12px; }
+  .b .body { font-size: 26px; font-weight: 300; line-height: 1.5; color: rgba(27,53,48,0.85); max-width: 580px; margin-top: 12px; }
+  .b ul { list-style: none; padding: 0; margin: 0; display:flex; flex-direction:column; gap: 14px; }
+  .b ul li { display:flex; align-items:center; gap: 14px; font-size: 24px; font-weight: 400; color: #1B3530; }
+  .b ul li .check { width: 28px; height: 28px; border-radius: 50%; background: white; display:flex; align-items:center; justify-content:center; flex-shrink: 0; }
+  .b ul li .check svg { width: 14px; height: 14px; }
+
+  .b .bottom { display:flex; justify-content:space-between; align-items:flex-end; }
+  .b .cta-box { background: white; padding: 24px 36px; border-radius: 999px; display:inline-flex; align-items:center; gap: 16px; }
+  .b .cta-box .arrow { width: 40px; height: 40px; border-radius:50%; background: var(--evo-graphite); color: white; display:flex; align-items:center; justify-content:center; }
+  .b .cta-box .text { font-size: 22px; font-weight: 500; color: var(--evo-graphite); letter-spacing: -0.01em; }
+  .b .handle { font-size: 18px; font-weight: 500; color: rgba(27,53,48,0.75); }
+
+  .petal-mark { position: absolute; bottom: -200px; right: -150px; opacity: 0.12; }
+  .petal-mark svg { width: 720px; height: 720px; }
+</style></head>
+<body>
+
+  <div style="text-align:center; flex-basis: 100%;">
+    <div class="label">Instagram · 1080 × 1080 · Promoción + Paquete</div>
+  </div>
+
+  <!-- ============ POST A ============ -->
+  <div class="post a">
+    <svg class="petals" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <g fill="none" stroke="#98CAC0" stroke-width="3">
+        <path d="M-100 600 C 200 400 500 600 600 900 C 300 1000 100 900 -100 800 Z" opacity="0.5"/>
+        <path d="M1180 200 C 900 300 700 500 800 800 C 1000 700 1100 500 1180 400 Z" opacity="0.4"/>
+        <path d="M540 -100 C 700 100 700 300 540 400 C 380 300 380 100 540 -100 Z" opacity="0.3"/>
+      </g>
+    </svg>
+    <div class="top">
+      <div>
+        <div class="word">evolution</div>
+        <div class="sub">studio dental</div>
+      </div>
+      <div class="badge"><span class="dot"></span>Esta semana</div>
+    </div>
+    <div class="center">
+      <div class="eyebrow">Limpieza + Evaluación</div>
+      <div class="head">Sonríe<br/>sin <em>miedo.</em></div>
+      <div class="lead">Una limpieza, una conversación, un café.<br/>Así empieza tu cuidado dental con Evolution.</div>
+    </div>
+    <div class="bottom">
+      <div class="price-block">
+        <div>
+          <div class="price-eyebrow">Desde</div>
+          <div class="price">S/ 80<small>/sesión</small></div>
+        </div>
+      </div>
+      <div class="cta">
+        <div class="badge" style="background: var(--evo-graphite); color: white;">
+          <span class="dot" style="background: var(--evo-mint);"></span>Agenda por WhatsApp
+        </div>
+        <div class="handle">@evolution.dental</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ POST B ============ -->
+  <div class="post b">
+    <svg class="petal-mark" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="white" stroke-width="3">
+        <path d="M180 360 c-6 -50 22 -110 75 -130 c-8 50 -32 100 -75 130z"/>
+        <path d="M420 360 c6 -50 -22 -110 -75 -130 c8 50 32 100 75 130z"/>
+        <path d="M120 380 c-10 -40 18 -90 80 -100 c-2 40 -28 82 -80 100z"/>
+        <path d="M480 380 c10 -40 -18 -90 -80 -100 c2 40 28 82 80 100z"/>
+        <path d="M120 380 c30 30 100 50 180 50 c80 0 150 -20 180 -50 c-30 50 -100 80 -180 80 c-80 0 -150 -30 -180 -80z"/>
+      </g>
+    </svg>
+    <div class="top">
+      <div>
+        <div class="lockup-w">evolution</div>
+        <div class="lockup-s">studio dental</div>
+      </div>
+      <div class="number">Paquete · 02</div>
+    </div>
+    <div class="center">
+      <div class="eye">Sonrisa Blanca</div>
+      <div class="head">Tu sonrisa,<br/>al siguiente nivel.</div>
+      <ul>
+        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#5E9D90" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 7"/></svg></span>Evaluación dental personalizada</li>
+        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#5E9D90" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 7"/></svg></span>Limpieza profesional completa</li>
+        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#5E9D90" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 7"/></svg></span>Blanqueamiento dental en consultorio</li>
+      </ul>
+    </div>
+    <div class="bottom">
+      <div class="cta-box">
+        <span class="text">Reserva tu cita</span>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      </div>
+      <div class="handle">@evolution.dental · +51 999 000 000</div>
+    </div>
+  </div>
+
+</body></html>

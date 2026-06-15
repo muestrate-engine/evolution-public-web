@@ -1,0 +1,53 @@
+---
+import { IMAGES } from '../../../constants/images';
+/** Hero de la página Nosotros: titular + banda de fotos con datos flotantes. */
+---
+
+<section class="relative overflow-hidden py-20 pb-[90px]">
+  <img
+    src="/img/brand/evolution-mark.svg"
+    alt=""
+    class="pointer-events-none absolute -right-[180px] -top-[120px] w-[580px] opacity-[0.06]"
+  />
+  <div class="wrap">
+    <div class="max-w-[920px]">
+      <div class="eyebrow">Nosotros</div>
+      <h1 class="m-0 mb-7 text-[clamp(48px,7vw,108px)] font-extralight leading-[0.96] tracking-[-0.035em] text-evo-graphite">
+        Donde el cuidado dental<br />se siente <em class="font-extralight not-italic text-evo-mint">humano.</em>
+      </h1>
+      <p class="m-0 max-w-[620px] text-[22px] font-light leading-[1.55] text-fg-2">
+        No nacimos para ser una clínica más. Nacimos para cambiar la forma en que las personas viven
+        ir al dentista — con calma, con elegancia y sin miedo.
+      </p>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 gap-[18px] lg:h-[460px] lg:grid-cols-[7fr_5fr]">
+      <div class="relative h-[380px] overflow-hidden rounded-[32px] shadow-[0_30px_60px_-24px_rgba(46,86,79,0.28)] lg:h-auto">
+        <img src={IMAGES.nosotrosHero} alt="Interior del studio Evolution" loading="eager" decoding="async" class="h-full w-full object-cover" />
+        <div class="absolute left-6 top-6 rounded-full bg-white/85 px-[18px] py-2.5 text-[11px] font-medium uppercase tracking-[0.24em] text-evo-mint-700 backdrop-blur-md">
+          Nuestro studio · Huancayo
+        </div>
+        <div class="absolute bottom-6 left-6 text-white">
+          <div class="text-5xl font-extralight leading-none tracking-[-0.03em]">2014</div>
+          <div class="mt-1 text-[13px] uppercase tracking-[0.16em] opacity-85">Año en que empezó todo</div>
+        </div>
+      </div>
+
+      <div class="grid grid-rows-2 gap-[18px]">
+        <div class="relative overflow-hidden rounded-[32px] shadow-[0_30px_60px_-24px_rgba(46,86,79,0.28)]">
+          <img src={IMAGES.studioDetail} alt="Detalle del studio" loading="lazy" decoding="async" class="h-full w-full object-cover" />
+          <div class="absolute bottom-6 left-6 text-white">
+            <div class="text-5xl font-extralight leading-none tracking-[-0.03em]">+800</div>
+            <div class="mt-1 text-[13px] uppercase tracking-[0.16em] opacity-85">Sonrisas atendidas</div>
+          </div>
+        </div>
+        <div class="flex flex-col justify-center gap-2 rounded-[32px] bg-evo-graphite px-[30px] py-7 text-white">
+          <div class="text-xl font-light leading-[1.4] tracking-[-0.01em]">
+            "Tratamos personas,<br /><em class="italic text-evo-mint">no dientes.</em>"
+          </div>
+          <div class="text-[13px] uppercase tracking-[0.12em] text-evo-mint-300">— Filosofía Evolution</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

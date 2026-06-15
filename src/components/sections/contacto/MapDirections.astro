@@ -1,0 +1,49 @@
+---
+import { SITE } from '../../../constants/site';
+import { CT_DIRECTIONS } from '../../../constants/contacto-page';
+import MapArt from '../../ui/MapArt.astro';
+import Icon from '../../Icon.astro';
+---
+
+<section class="relative overflow-hidden bg-evo-cream py-20 md:py-[120px]">
+  <div
+    class="pointer-events-none absolute -left-[8%] -top-[12%] h-[480px] w-[480px]"
+    style="background: radial-gradient(circle, rgba(152,202,192,0.3), transparent 62%);"
+  >
+  </div>
+  <div class="wrap relative">
+    <div class="mb-13 max-w-[720px]">
+      <div class="eyebrow">Cómo llegar</div>
+      <h2 class="h-section">En pleno centro<br />de <em>Huancayo.</em></h2>
+    </div>
+    <div class="grid grid-cols-1 items-stretch gap-7 lg:grid-cols-[7fr_5fr]">
+      <MapArt class="min-h-[420px] lg:min-h-[560px]" />
+
+      <div class="flex flex-col gap-[18px]">
+        {
+          CT_DIRECTIONS.map((d) => (
+            <div class="flex items-start gap-[18px] rounded-[24px] border border-line bg-white px-7 py-[26px]">
+              <div class="flex h-[46px] w-[46px] flex-shrink-0 items-center justify-center rounded-[14px] border border-evo-mint-100 bg-evo-mint-50 text-evo-mint-700">
+                <Icon name={d.icon} size={22} />
+              </div>
+              <div>
+                <h4 class="m-0 mb-1.5 text-[17px] font-medium tracking-[-0.01em] text-evo-graphite">{d.title}</h4>
+                <p class="m-0 text-sm leading-[1.55] text-fg-2">{d.text}</p>
+              </div>
+            </div>
+          ))
+        }
+        <a
+          href={SITE.address.mapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex flex-col gap-4 rounded-[24px] border border-evo-graphite bg-evo-graphite px-7 py-[26px]"
+        >
+          <h4 class="m-0 text-xl font-light text-white">Abrir en Google Maps</h4>
+          <p class="m-0 text-sm leading-[1.55] text-white/65">Te llevamos paso a paso hasta la puerta del studio.</p>
+          <span class="btn btn-w self-start">Cómo llegar →</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { equipoSeo } from '../seo';
+import Hero from '../components/sections/equipo/Hero.astro';
+import Philosophy from '../components/sections/equipo/Philosophy.astro';
+import Profiles from '../components/sections/equipo/Profiles.astro';
+import Certifications from '../components/sections/equipo/Certifications.astro';
+import Support from '../components/sections/equipo/Support.astro';
+import Training from '../components/sections/equipo/Training.astro';
+import Cta from '../components/sections/Cta.astro';
+---
+
+<Layout meta={equipoSeo}>
+  <Hero />
+  <Philosophy />
+  <Profiles />
+  <Certifications />
+  <Support />
+  <Training />
+  <Cta />
+</Layout>

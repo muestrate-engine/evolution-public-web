@@ -1,0 +1,53 @@
+---
+import { SITE } from '../../../constants/site';
+import { CT_FAQ } from '../../../constants/contacto-page';
+import Icon from '../../Icon.astro';
+---
+
+<section class="bg-evo-bone py-20 md:py-[120px]">
+  <div class="wrap grid grid-cols-1 items-start gap-[72px] lg:grid-cols-[5fr_7fr]">
+    <div class="lg:sticky lg:top-[110px]">
+      <div class="eyebrow">Preguntas frecuentes</div>
+      <h2 class="h-section">Antes de<br /><em>escribirnos.</em></h2>
+      <p class="lead mt-6">
+        Resolvemos aquí las dudas más comunes. Si la tuya no está, escríbenos por WhatsApp y te
+        respondemos al toque.
+      </p>
+      <div class="mt-7 rounded-[24px] border border-evo-mint-100 bg-evo-mint-50 px-[30px] py-7">
+        <div class="text-base leading-[1.5] text-evo-graphite">
+          <strong class="font-medium">¿No encuentras tu respuesta?</strong><br />Escríbenos directo y una
+          persona real te contesta.
+        </div>
+        <a
+          href={SITE.whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-evo-mint-700"
+        >
+          <Icon name="whatsapp" size={16} strokeWidth={1.7} />Escríbenos por WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="flex flex-col">
+      {
+        CT_FAQ.map((item, i) => (
+          <details
+            open={i === 0}
+            class="qa group border-b border-line first:border-t"
+          >
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-7 [&::-webkit-details-marker]:hidden">
+              <span class="text-xl font-normal tracking-[-0.015em] text-evo-graphite transition-colors group-open:text-evo-mint-700">
+                {item.q}
+              </span>
+              <span class="flex h-[34px] w-[34px] flex-shrink-0 items-center justify-center rounded-full border border-line text-evo-mint-700 transition-all duration-300 group-open:rotate-[135deg] group-open:border-evo-mint group-open:bg-evo-mint group-open:text-evo-mint-900">
+                <Icon name="cross" size={16} strokeWidth={2} />
+              </span>
+            </summary>
+            <p class="m-0 max-w-[600px] pb-7 pr-10 text-base leading-[1.65] text-fg-2">{item.a}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

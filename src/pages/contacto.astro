@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { contactoSeo } from '../seo';
+import { CT_FAQ } from '../constants/contacto-page';
+import Hero from '../components/sections/contacto/Hero.astro';
+import ContactForm from '../components/sections/contacto/ContactForm.astro';
+import MapDirections from '../components/sections/contacto/MapDirections.astro';
+import Faq from '../components/sections/contacto/Faq.astro';
+import Cta from '../components/sections/Cta.astro';
+---
+
+<Layout meta={{ ...contactoSeo, faq: CT_FAQ }}>
+  <Hero />
+  <ContactForm />
+  <MapDirections />
+  <Faq />
+  <Cta />
+</Layout>

@@ -1,0 +1,35 @@
+---
+import { TR_REASONS } from '../../../constants/tratamientos-page';
+import Icon from '../../Icon.astro';
+---
+
+<section class="relative overflow-hidden py-20 pb-[90px]">
+  <img
+    src="/img/brand/evolution-mark.svg"
+    alt=""
+    class="pointer-events-none absolute -right-[180px] -top-[120px] w-[580px] opacity-[0.06]"
+  />
+  <div class="wrap grid grid-cols-1 items-end gap-16 lg:grid-cols-[7fr_5fr]">
+    <div>
+      <div class="eyebrow">Tratamientos</div>
+      <h1 class="m-0 mb-7 text-[clamp(48px,6.6vw,100px)] font-extralight leading-[0.96] tracking-[-0.035em] text-evo-graphite">
+        Todo lo que tu sonrisa<br />necesita, <em class="font-extralight not-italic text-evo-mint">en un solo lugar.</em>
+      </h1>
+      <p class="m-0 text-[21px] font-light leading-[1.55] text-fg-2">
+        Desde una limpieza hasta un diseño completo de sonrisa. Cada tratamiento se explica con calma,
+        con precios claros desde el inicio y al ritmo que tú elijas.
+      </p>
+    </div>
+    <div class="rounded-[28px] bg-evo-graphite p-8 text-white">
+      <div class="mb-4 text-xs font-medium uppercase tracking-[0.24em] text-evo-mint-300">Por qué Evolution</div>
+      {
+        TR_REASONS.map((r) => (
+          <div class="flex items-center gap-3 border-t border-white/10 py-3 text-[15px] text-white/85">
+            <Icon name="check-circle" size={18} strokeWidth={1.8} class="flex-shrink-0 text-evo-mint" />
+            {r}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

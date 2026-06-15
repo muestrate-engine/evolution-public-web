@@ -1,0 +1,96 @@
+---
+import { SITE, SOCIALS } from '../../constants/site';
+import { FOOTER_NAV } from '../../constants/navigation';
+import Icon from '../Icon.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-[#0F1A18] pt-[100px] pb-10 text-white/60">
+  <div class="wrap">
+    <div
+      class="grid grid-cols-1 gap-[60px] border-b border-white/10 pb-[60px] md:grid-cols-2 lg:grid-cols-[2.5fr_1fr_1fr_1fr]"
+    >
+      <!-- Marca -->
+      <div class="flex max-w-[320px] flex-col gap-[18px]">
+        <div class="flex items-center gap-3">
+          <img src="/img/brand/evolution-mark.svg" alt="" class="h-[52px] w-auto" />
+          <div>
+            <div class="text-[32px] font-light leading-none tracking-[-0.025em] text-evo-mint">
+              evolution
+            </div>
+            <div class="mt-1.5 text-[11px] font-medium uppercase tracking-[0.32em] text-evo-mint-300">
+              studio dental
+            </div>
+          </div>
+        </div>
+        <p class="m-0 text-[14.5px] leading-[1.6]">
+          Cuidamos tu sonrisa con elegancia, confianza y sin miedo. Donde tu sonrisa evoluciona.
+        </p>
+        <div class="mt-2 flex gap-2">
+          {
+            SOCIALS.map((s) => (
+              <a
+                href={s.href}
+                aria-label={s.label}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex h-[38px] w-[38px] items-center justify-center rounded-full bg-white/[0.06] text-white/70 transition-all duration-200 hover:bg-evo-mint hover:text-evo-mint-900"
+              >
+                <Icon name={s.icon} size={18} />
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Columnas de enlaces -->
+      {
+        FOOTER_NAV.map((col) => (
+          <div>
+            <h5 class="m-0 mb-5 text-xs font-medium uppercase tracking-[0.24em] text-evo-mint">
+              {col.title}
+            </h5>
+            <ul class="m-0 flex list-none flex-col gap-3 p-0">
+              {col.links.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-[14.5px] text-white/65 transition-colors duration-200 hover:text-evo-mint"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+
+      <!-- Contacto -->
+      <div>
+        <h5 class="m-0 mb-5 text-xs font-medium uppercase tracking-[0.24em] text-evo-mint">
+          Contacto
+        </h5>
+        <ul class="m-0 flex list-none flex-col gap-3 p-0 text-[14.5px] text-white/65">
+          <li><a href={SITE.phoneHref} class="transition-colors hover:text-evo-mint">{SITE.phone}</a></li>
+          <li><a href={`mailto:${SITE.email}`} class="transition-colors hover:text-evo-mint">{SITE.email}</a></li>
+          <li>{SITE.address.street}</li>
+          <li>{SITE.address.district}, {SITE.address.city}</li>
+          <li>Lun–Sáb · 9:00–19:00</li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="flex flex-wrap items-center justify-between gap-4 pt-8 text-[12.5px] text-white/40"
+    >
+      <div>© {year} {SITE.name} — {SITE.tagline}</div>
+      <div class="flex gap-6">
+        <a href="/privacidad" class="hover:text-evo-mint">Privacidad</a>
+        <a href="/terminos" class="hover:text-evo-mint">Términos</a>
+        <a href="/contacto" class="hover:text-evo-mint">Contacto</a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,39 @@
+---
+import { PHILOSOPHY_STEPS } from '../../../constants/nosotros';
+---
+
+<section class="bg-evo-bone py-20 md:py-[130px]">
+  <div class="wrap grid grid-cols-1 items-start gap-20 lg:grid-cols-[5fr_7fr]">
+    <div class="lg:sticky lg:top-[110px]">
+      <div class="eyebrow">Filosofía de atención</div>
+      <h2 class="h-section">Una cita en Evolution,<br /><em>paso a paso.</em></h2>
+      <p class="lead mt-6">
+        No queremos sorpresas. Así es exactamente cómo te cuidamos, desde el primer mensaje hasta el
+        seguimiento.
+      </p>
+      <div class="mt-9 rounded-[28px] bg-evo-mint p-9 text-evo-mint-900">
+        <div class="mb-3 text-xs font-medium uppercase tracking-[0.24em] text-evo-mint-900/60">Nuestra promesa</div>
+        <div class="text-2xl font-light leading-[1.35] tracking-[-0.015em]">
+          Si en algún momento sientes incomodidad, <em class="italic">paramos.</em> Sin preguntas, sin
+          presión.
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col">
+      {
+        PHILOSOPHY_STEPS.map((step, i) => (
+          <div class="grid grid-cols-[64px_1fr] items-start gap-7 border-b border-line py-[30px] last:border-b-0">
+            <div class="flex h-14 w-14 items-center justify-center rounded-full border border-evo-mint-100 bg-evo-mint-50 text-xl font-light text-evo-mint-700">
+              {i + 1}
+            </div>
+            <div>
+              <h4 class="mb-2 mt-1 text-[23px] font-normal tracking-[-0.015em] text-evo-graphite">{step.title}</h4>
+              <p class="m-0 text-base leading-[1.6] text-fg-2">{step.text}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

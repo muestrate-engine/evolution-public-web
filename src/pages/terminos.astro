@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { terminosSeo } from '../seo';
+import { TERMS } from '../constants/legal';
+import LegalDoc from '../components/sections/legal/LegalDoc.astro';
+---
+
+<Layout meta={terminosSeo}>
+  <LegalDoc eyebrow="Legal" title="Términos y" titleEm="Condiciones." doc={TERMS} />
+</Layout>

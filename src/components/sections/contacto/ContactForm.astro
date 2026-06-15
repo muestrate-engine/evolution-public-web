@@ -1,0 +1,117 @@
+---
+import { SITE } from '../../../constants/site';
+import { CT_TREATMENT_OPTIONS, CT_ADDRESS_TAGS } from '../../../constants/contacto-page';
+import Icon from '../../Icon.astro';
+
+const fieldClass =
+  'w-full rounded-[14px] border border-line bg-evo-bone px-4 py-3.5 text-[15px] text-fg transition focus:border-evo-mint focus:bg-white focus:outline-none focus:ring-4 focus:ring-evo-mint-50 placeholder:text-fg-3';
+const labelClass = 'text-xs font-medium uppercase tracking-[0.06em] text-fg';
+---
+
+<section id="form" class="pb-[120px] pt-[50px]">
+  <div class="wrap grid grid-cols-1 items-start gap-7 lg:grid-cols-[7fr_5fr]">
+    <!-- Formulario -->
+    <div class="rounded-[32px] border border-line bg-white p-8 sm:p-12">
+      <div class="eyebrow mb-4">Escríbenos</div>
+      <h2 class="m-0 mb-2.5 text-[34px] font-light leading-[1.05] tracking-[-0.02em] text-evo-graphite">
+        Cuéntanos qué<br />necesitas <em class="italic text-evo-mint">y te contactamos.</em>
+      </h2>
+      <p class="m-0 mb-9 max-w-[460px] text-[15px] leading-[1.55] text-fg-2">
+        Completa el formulario y te respondemos el mismo día. Sin compromiso — solo conversamos para
+        entender cómo podemos ayudarte.
+      </p>
+
+      <form
+        method="post"
+        action={`${SITE.whatsappUrl}`}
+        onsubmit="return false;"
+      >
+        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <div class="flex flex-col gap-2.5">
+            <label class={labelClass} for="nombre">Nombre <span class="text-evo-mint-600">*</span></label>
+            <input class={fieldClass} id="nombre" name="nombre" type="text" placeholder="Tu nombre completo" required />
+          </div>
+          <div class="flex flex-col gap-2.5">
+            <label class={labelClass} for="tel">Teléfono / WhatsApp <span class="text-evo-mint-600">*</span></label>
+            <input class={fieldClass} id="tel" name="tel" type="tel" placeholder="+51 999 000 000" required />
+          </div>
+          <div class="flex flex-col gap-2.5">
+            <label class={labelClass} for="email">Correo electrónico</label>
+            <input class={fieldClass} id="email" name="email" type="email" placeholder="tucorreo@ejemplo.com" />
+          </div>
+          <div class="flex flex-col gap-2.5">
+            <label class={labelClass} for="trat">¿Qué te interesa?</label>
+            <select class={`${fieldClass} cursor-pointer appearance-none`} id="trat" name="tratamiento">
+              {CT_TREATMENT_OPTIONS.map((opt) => <option>{opt}</option>)}
+            </select>
+          </div>
+          <div class="flex flex-col gap-2.5 sm:col-span-2">
+            <label class={labelClass} for="msg">Tu mensaje</label>
+            <textarea
+              class={`${fieldClass} min-h-[124px] resize-y leading-[1.55]`}
+              id="msg"
+              name="mensaje"
+              placeholder="Cuéntanos qué buscas o qué te preocupa. Mientras más nos digas, mejor te orientamos."></textarea>
+          </div>
+        </div>
+
+        <div class="mt-7 flex flex-wrap items-center justify-between gap-6">
+          <label class="flex max-w-[380px] items-start gap-3 text-[12.5px] leading-[1.5] text-fg-2">
+            <input type="checkbox" required class="mt-0.5 h-[18px] w-[18px] flex-shrink-0 accent-evo-mint-600" />
+            <span>Acepto que Evolution use mis datos para contactarme sobre mi consulta, según su política de privacidad.</span>
+          </label>
+          <button type="submit" class="btn btn-p">
+            Enviar mensaje <span class="arr"><Icon name="arrow-right" size={18} strokeWidth={2} /></span>
+          </button>
+        </div>
+        <div class="mt-[22px] flex items-center gap-2 text-[12.5px] text-fg-3">
+          <Icon name="map-pin" size={15} />
+          Tus datos están seguros. Nunca compartimos tu información con terceros.
+        </div>
+      </form>
+    </div>
+
+    <!-- Aside: horarios + dirección -->
+    <div class="flex flex-col gap-5">
+      <div class="rounded-[28px] bg-evo-graphite p-[34px] text-white">
+        <div class="eyebrow !text-evo-mint before:!bg-evo-mint">Horarios de atención</div>
+        <h3 class="m-0 mb-[22px] text-2xl font-light tracking-[-0.015em] text-white">Cuándo estamos</h3>
+        {
+          SITE.hours.map((h) => (
+            <div class="flex items-baseline justify-between gap-4 border-b border-white/[0.12] py-3.5 last:border-b-0">
+              <span class="text-[15px] text-white/[0.92]">{h.label}</span>
+              <span class:list={['text-sm font-medium', h.value === 'Cerrado' ? 'text-white/40' : 'text-evo-mint-300']}>
+                {h.value}
+              </span>
+            </div>
+          ))
+        }
+        <div class="flex items-baseline justify-between gap-4 border-t border-white/[0.12] py-3.5">
+          <span class="text-[15px] text-white/[0.92]">Feriados</span>
+          <span class="text-sm font-medium text-evo-mint-300">Cita previa</span>
+        </div>
+        <div class="mt-[22px] inline-flex items-center gap-2.5 rounded-full border border-evo-mint/30 bg-evo-mint/[0.14] px-4 py-2.5 text-[13px] font-medium text-evo-mint-300">
+          <span class="h-2 w-2 rounded-full bg-evo-mint shadow-[0_0_0_4px_rgba(152,202,192,0.25)]"></span>
+          Abierto ahora · cierra a las 19:00
+        </div>
+      </div>
+
+      <div class="rounded-[28px] border border-evo-mint-100 bg-evo-mint-50 p-[34px]">
+        <div class="eyebrow mb-3.5">Dirección del studio</div>
+        <div class="text-xl tracking-[-0.01em] text-evo-graphite">
+          {SITE.address.street}
+          <small class="mt-1 block text-sm text-fg-2">{SITE.address.district}, {SITE.address.city} {SITE.address.postalCode} — Perú</small>
+        </div>
+        <div class="mt-[18px] flex flex-wrap gap-2">
+          {
+            CT_ADDRESS_TAGS.map((tag) => (
+              <span class="rounded-full border border-evo-mint-100 bg-white px-3 py-1.5 text-xs font-medium text-evo-mint-700">
+                {tag}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

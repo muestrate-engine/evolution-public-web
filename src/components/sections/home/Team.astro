@@ -1,0 +1,63 @@
+---
+import { TEAM } from '../../../constants/team';
+import Button from '../../ui/Button.astro';
+
+const photoBg = [
+  'linear-gradient(160deg, #C8E3DC, #5E9D90)',
+  'linear-gradient(160deg, #F5EFE6, #C8E3DC)',
+  'linear-gradient(160deg, #98CAC0, #2F564F)',
+  'linear-gradient(160deg, #E8E2D7, #98CAC0)',
+];
+---
+
+<section id="equipo" class="bg-evo-bone py-20 md:py-[130px]">
+  <div class="wrap">
+    <div class="flex flex-wrap items-end justify-between gap-10">
+      <div>
+        <div class="eyebrow">Nuestro equipo</div>
+        <h2 class="h-section">Cuatro especialistas,<br />una <em>visión común.</em></h2>
+        <p class="lead mt-6">
+          Cada miembro del equipo elige Evolution porque comparte la misma idea: el cuidado dental se
+          hace mejor cuando es humano.
+        </p>
+      </div>
+      <Button href="/contacto" variant="s" arrow>Reservar con un especialista</Button>
+    </div>
+
+    <div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        TEAM.map((member, i) => (
+          <article class="group overflow-hidden rounded-[28px] border border-line bg-white transition-all duration-300 hover:-translate-y-1 hover:border-evo-mint hover:shadow-[0_24px_48px_-16px_rgba(46,86,79,0.2)]">
+            <div class="relative aspect-[4/5] overflow-hidden" style={`background: ${photoBg[i % 4]};`}>
+              <img
+                src={member.photo}
+                alt={`${member.name} — ${member.role} en Evolution Studio Dental`}
+                width="600"
+                height="750"
+                loading="lazy"
+                decoding="async"
+                class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-evo-mint-900/45 via-transparent to-transparent"></div>
+              <div class="absolute left-[18px] top-[18px] rounded-full bg-white/90 px-3.5 py-2 text-[11px] font-medium uppercase tracking-[0.18em] text-evo-mint-700">
+                {member.role}
+              </div>
+            </div>
+            <div class="px-[26px] pb-7 pt-6">
+              <h4 class="m-0 mb-1 text-[22px] font-normal tracking-[-0.015em] text-evo-graphite">{member.name}</h4>
+              <div class="text-[13px] font-medium text-evo-mint-700">{member.specialty}</div>
+              <p class="my-3.5 text-[13.5px] leading-[1.55] text-fg-2">{member.bio}</p>
+              <div class="flex flex-wrap gap-1.5">
+                {member.credentials.map((c) => (
+                  <span class="rounded-full border border-evo-mint-100 bg-evo-mint-50 px-2.5 py-1 text-[11px] font-medium text-evo-mint-700">
+                    {c}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

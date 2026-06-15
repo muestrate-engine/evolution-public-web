@@ -1,0 +1,30 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Voice" subtitle="On-brand vs off-brand copy" viewport="700x260" -->
+<html><head><meta charset="utf-8"/>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  body { margin:0; padding:24px 28px; background: var(--bg); display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .col { display:flex; flex-direction:column; gap:10px; }
+  .head { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform:uppercase; }
+  .ok .head { color: #5E9D90; }
+  .no .head { color: #D08577; }
+  .line { font-size: 14px; color: var(--fg); line-height: 1.5; padding: 8px 14px; border-radius: 12px; }
+  .ok .line { background: rgba(122, 181, 160, 0.10); border-left: none; }
+  .no .line { background: rgba(208, 133, 119, 0.10); color: var(--fg-2); text-decoration: line-through; text-decoration-color: rgba(208,133,119,0.5); }
+</style></head>
+<body>
+  <div class="col ok">
+    <div class="head">✓ On-brand</div>
+    <div class="line">Sonríe sin miedo.</div>
+    <div class="line">Tu sonrisa, en su mejor versión.</div>
+    <div class="line">Te explicamos todo, paso a paso.</div>
+    <div class="line">Esta semana: limpieza + evaluación, S/ 80.</div>
+  </div>
+  <div class="col no">
+    <div class="head">✗ Off-brand</div>
+    <div class="line">¡¡¡PROMOCIÓN IMPERDIBLE!!!</div>
+    <div class="line">El mejor dentista de la ciudad.</div>
+    <div class="line">No te pierdas esta oportunidad única.</div>
+    <div class="line">Servicios de estomatología integral.</div>
+  </div>
+</body></html>

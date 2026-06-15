@@ -1,0 +1,33 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Cards" subtitle="Three card recipes for service tiles" viewport="700x210" -->
+<html><head><meta charset="utf-8"/>
+<link rel="stylesheet" href="../colors_and_type.css"/>
+<style>
+  body { margin:0; padding:24px; background: var(--bg); display:grid; grid-template-columns: repeat(3,1fr); gap:16px; }
+  .card { padding: 22px; border-radius: 24px; box-shadow: 0 2px 6px rgba(46,86,79,0.06), 0 1px 2px rgba(46,86,79,0.04); display:flex; flex-direction:column; gap: 10px; min-height: 150px; }
+  .a { background: white; border: 1px solid var(--line); }
+  .b { background: var(--evo-mint-50); border: 1px solid var(--evo-mint-100); }
+  .c { background: var(--evo-mint); color: #1B3530; }
+  .eye { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform:uppercase; color: var(--evo-mint-700); }
+  .c .eye { color: #1B3530; opacity: 0.7; }
+  .ttl { font-size: 22px; font-weight: 300; letter-spacing: -0.01em; }
+  .body { font-size: 13px; color: var(--fg-2); line-height: 1.6; }
+  .c .body { color: #1B3530; opacity: 0.85; }
+</style></head>
+<body>
+  <div class="card a">
+    <div class="eye">Limpieza</div>
+    <div class="ttl">Sonrisa Fresh</div>
+    <div class="body">Evaluación, limpieza y plan personalizado. Ideal para empezar.</div>
+  </div>
+  <div class="card b">
+    <div class="eye">Blanqueamiento</div>
+    <div class="ttl">Sonrisa Blanca</div>
+    <div class="body">Evaluación, limpieza y blanqueamiento profesional en un solo paquete.</div>
+  </div>
+  <div class="card c">
+    <div class="eye">Premium</div>
+    <div class="ttl">Evolution Smile</div>
+    <div class="body">Diseño de sonrisa con plan estético personalizado.</div>
+  </div>
+</body></html>

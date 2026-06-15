@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720">
+  
+  <g stroke="#98CAC0" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M300 110&#xA;             c-32 0 -52 22 -52 52&#xA;             c0 24 6 42 6 70&#xA;             c0 22 -6 36 -6 58&#xA;             c0 24 14 38 26 38&#xA;             c10 0 14 -10 14 -22&#xA;             c0 -10 -2 -20 4 -20&#xA;             c6 0 4 10 4 20&#xA;             c0 12 4 22 14 22&#xA;             c12 0 26 -14 26 -38&#xA;             c0 -22 -6 -34 -6 -58&#xA;             c0 -28 6 -46 6 -70&#xA;             c0 -30 -20 -52 -52 -52z"></path>
+    <path d="M180 360 c-6 -50 22 -110 75 -130 c-8 50 -32 100 -75 130z"></path>
+    <path d="M420 360 c6 -50 -22 -110 -75 -130 c8 50 32 100 75 130z"></path>
+    <path d="M120 380 c-10 -40 18 -90 80 -100 c-2 40 -28 82 -80 100z"></path>
+    <path d="M480 380 c10 -40 -18 -90 -80 -100 c2 40 28 82 80 100z"></path>
+    <path d="M120 380 c30 30 100 50 180 50 c80 0 150 -20 180 -50 c-30 50 -100 80 -180 80 c-80 0 -150 -30 -180 -80z"></path>
+    <path d="M230 390 C 270 400, 330 400, 370 390"></path>
+  </g>
+  
+  <text x="300" y="610" font-family="Manrope, sans-serif" font-size="120" font-weight="300" letter-spacing="-2" text-anchor="middle" fill="#98CAC0">evolution</text>
+  <text x="300" y="660" font-family="Manrope, sans-serif" font-size="20" font-weight="500" letter-spacing="13" text-anchor="middle" fill="#7DB7AC">STUDIO DENTAL</text>
+</svg>

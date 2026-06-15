@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { nosotrosSeo } from '../seo';
+import Hero from '../components/sections/nosotros/Hero.astro';
+import Historia from '../components/sections/nosotros/Historia.astro';
+import MissionValues from '../components/sections/nosotros/MissionValues.astro';
+import Team from '../components/sections/home/Team.astro';
+import Philosophy from '../components/sections/nosotros/Philosophy.astro';
+import Reviews from '../components/sections/home/Reviews.astro';
+import Cta from '../components/sections/Cta.astro';
+---
+
+<Layout meta={nosotrosSeo}>
+  <Hero />
+  <Historia />
+  <MissionValues />
+  <Team />
+  <Philosophy />
+  <Reviews />
+  <Cta />
+</Layout>

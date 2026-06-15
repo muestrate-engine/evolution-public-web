@@ -1,0 +1,91 @@
+---
+import { TESTIMONIALS } from '../../../constants/content';
+import { RATING } from '../../../constants/site';
+import Icon from '../../Icon.astro';
+
+/** Divide la cita alrededor del fragmento a resaltar. */
+function splitQuote(quote: string, highlight?: string) {
+  if (!highlight || !quote.includes(highlight)) return { before: quote, mark: '', after: '' };
+  const [before, after] = quote.split(highlight);
+  return { before, mark: highlight, after };
+}
+---
+
+<section id="testimonios" class="relative overflow-hidden bg-evo-cream py-20 md:py-[130px]">
+  <div
+    class="pointer-events-none absolute -bottom-[10%] -left-[8%] h-[480px] w-[480px]"
+    style="background: radial-gradient(circle, rgba(152,202,192,0.35), transparent 60%);"
+  >
+  </div>
+
+  <div class="wrap relative">
+    <div class="mb-12 flex flex-wrap items-end justify-between gap-10">
+      <div>
+        <div class="eyebrow">Pacientes felices</div>
+        <h2 class="h-section">Lo que dicen<br /><em>quienes ya pasaron por aquí.</em></h2>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="text-[56px] font-extralight leading-none tracking-[-0.025em] text-evo-graphite">{RATING.score}</div>
+        <div class="flex flex-col gap-1">
+          <div class="flex gap-[3px]">
+            {Array.from({ length: 5 }).map(() => <Icon name="star" size={16} class="fill-evo-mint" />)}
+          </div>
+          <div class="text-xs font-medium text-fg-2">Basado en {RATING.count} reseñas en {RATING.source}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 gap-[18px] lg:grid-cols-3">
+      {
+        TESTIMONIALS.map((t, i) => {
+          const dark = i === 1;
+          const { before, mark, after } = splitQuote(t.quote, t.highlight);
+          return (
+            <article
+              class:list={[
+                'flex flex-col gap-[18px] rounded-[28px] p-8',
+                dark
+                  ? 'bg-evo-graphite text-white'
+                  : 'border border-white/60 bg-white shadow-[0_8px_24px_-12px_rgba(46,86,79,0.08)]',
+              ]}
+            >
+              <div class="flex gap-[3px]">
+                {Array.from({ length: t.rating }).map(() => <Icon name="star" size={14} class="fill-evo-mint" />)}
+              </div>
+              <p
+                class:list={[
+                  'flex-1 text-[17px] font-light leading-[1.55] tracking-[-0.005em]',
+                  dark ? 'text-white/95' : 'text-evo-graphite',
+                ]}
+              >
+                "{before}
+                {mark && <em class:list={['italic', dark ? 'text-evo-mint' : 'text-evo-mint-700']}>{mark}</em>}
+                {after}"
+              </p>
+              <div
+                class:list={[
+                  'flex items-center gap-3.5 border-t pt-[18px]',
+                  dark ? 'border-white/15' : 'border-line',
+                ]}
+              >
+                <div
+                  class="flex h-[42px] w-[42px] items-center justify-center rounded-full text-base font-medium text-white"
+                  style="background: linear-gradient(135deg, #C8E3DC, #98CAC0);"
+                >
+                  {t.initial}
+                </div>
+                <div>
+                  <div class:list={['text-sm font-medium', dark ? 'text-white' : 'text-fg']}>{t.name}</div>
+                  <div class:list={['text-xs', dark ? 'text-white/60' : 'text-fg-3']}>
+                    {t.treatment} · {t.date}
+                  </div>
+                </div>
+                <Icon name="google" size={22} class="ml-auto" />
+              </div>
+            </article>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

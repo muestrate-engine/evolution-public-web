@@ -1,0 +1,35 @@
+---
+import { EQ_CERTS } from '../../../constants/equipo-page';
+import Icon from '../../Icon.astro';
+---
+
+<section class="bg-evo-mint-50 py-20 md:py-[130px]">
+  <div class="wrap">
+    <div class="grid grid-cols-1 items-end gap-14 lg:grid-cols-[5fr_7fr]">
+      <div>
+        <div class="eyebrow">Certificaciones</div>
+        <h2 class="h-section">Respaldo<br /><em>que se comprueba.</em></h2>
+      </div>
+      <p class="lead">
+        No basta con decir que cuidamos bien. Estas son las acreditaciones, colegiaturas y estándares
+        que respaldan cada tratamiento que hacemos.
+      </p>
+    </div>
+    <div class="mt-14 grid grid-cols-1 gap-[18px] sm:grid-cols-2 lg:grid-cols-3">
+      {
+        EQ_CERTS.map((c) => (
+          <div class="flex flex-col gap-4 rounded-[24px] border border-evo-mint-100 bg-white px-[30px] py-8 transition-all duration-300 hover:-translate-y-[3px] hover:shadow-[0_20px_40px_-18px_rgba(46,86,79,0.18)]">
+            <div class="flex h-12 w-12 items-center justify-center rounded-[14px] bg-evo-mint text-evo-mint-900">
+              <Icon name={c.icon} size={22} strokeWidth={1.8} />
+            </div>
+            <h4 class="m-0 text-[19px] font-normal tracking-[-0.01em] text-evo-graphite">{c.title}</h4>
+            <p class="m-0 text-sm leading-[1.55] text-fg-2">{c.text}</p>
+            <div class="mt-auto border-t border-evo-mint-100 pt-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-evo-mint-700">
+              {c.meta}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

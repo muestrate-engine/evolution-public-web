@@ -1,0 +1,29 @@
+---
+import { TS_TRUST } from '../../../constants/testimonios-page';
+---
+
+<section class="pb-[30px]">
+  <div class="wrap">
+    <div class="grid grid-cols-1 overflow-hidden rounded-[32px] border border-line bg-white sm:grid-cols-2 lg:grid-cols-4">
+      {
+        TS_TRUST.map((cell, i) => (
+          <div
+            class:list={[
+              'px-9 py-11',
+              'border-line',
+              i < TS_TRUST.length - 1 && 'lg:border-r',
+              'border-b sm:[&:nth-last-child(-n+1)]:border-b-0 lg:border-b-0',
+            ]}
+          >
+            <div class="text-[56px] font-extralight leading-none tracking-[-0.03em] text-evo-graphite">
+              <em class="italic text-evo-mint">{cell.value}</em>
+              {cell.suffix && <span class="text-[0.46em] text-fg-3">{cell.suffix}</span>}
+            </div>
+            <div class="mt-4 text-sm font-medium tracking-[-0.01em] text-fg">{cell.label}</div>
+            <div class="mt-1.5 text-[13.5px] leading-[1.5] text-fg-2">{cell.desc}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

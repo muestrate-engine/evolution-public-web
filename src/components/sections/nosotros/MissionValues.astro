@@ -1,0 +1,40 @@
+---
+import { MISSION_VALUES } from '../../../constants/nosotros';
+import Icon from '../../Icon.astro';
+---
+
+<section class="relative overflow-hidden bg-evo-graphite py-20 md:py-[130px] text-white">
+  <div
+    class="pointer-events-none absolute -right-[15%] -top-[30%] h-[700px] w-[700px]"
+    style="background: radial-gradient(circle, rgba(152,202,192,0.18), transparent 60%);"
+  >
+  </div>
+
+  <div class="wrap relative">
+    <div class="max-w-[940px]">
+      <div class="eyebrow !text-evo-mint before:!bg-evo-mint">Nuestra misión</div>
+      <p class="m-0 text-[clamp(32px,4vw,56px)] font-extralight leading-[1.18] tracking-[-0.02em] text-white">
+        Hacer que cada persona viva el cuidado dental con
+        <em class="italic text-evo-mint">calma, dignidad y confianza</em> — y salga del studio
+        sintiéndose mejor de lo que entró.
+      </p>
+    </div>
+
+    <div class="mt-[72px] grid grid-cols-1 gap-[18px] md:grid-cols-2 lg:grid-cols-3">
+      {
+        MISSION_VALUES.map((v, i) => (
+          <div class="flex flex-col gap-4 rounded-[28px] border border-white/10 bg-white/[0.04] p-8 px-8 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.07]">
+            <div class="flex h-[52px] w-[52px] items-center justify-center rounded-2xl border border-evo-mint/30 bg-evo-mint/[0.16] text-evo-mint">
+              <Icon name={v.icon} size={22} />
+            </div>
+            <div class="text-xs font-medium uppercase tracking-[0.18em] text-evo-mint-300">
+              Valor {String(i + 1).padStart(2, '0')}
+            </div>
+            <h3 class="m-0 text-2xl font-light tracking-[-0.015em] text-white">{v.title}</h3>
+            <p class="m-0 text-[15px] leading-[1.6] text-white/65">{v.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

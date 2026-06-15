@@ -1,0 +1,72 @@
+---
+import { SITE } from '../../constants/site';
+import Button from '../ui/Button.astro';
+import Icon from '../Icon.astro';
+
+/** Sección de llamado a la acción, reutilizada al cierre de cada página. */
+interface Props {
+  id?: string;
+}
+const { id = 'cta' } = Astro.props;
+
+const perks = [
+  { icon: 'clock-3', label: '60 minutos · sin prisa' },
+  { icon: 'check-circle', label: 'Sin costo de evaluación' },
+  { icon: 'heart', label: 'Plan personalizado al final' },
+];
+---
+
+<section id={id} class="relative overflow-hidden bg-evo-graphite py-20 md:py-[130px] text-white">
+  <div
+    class="pointer-events-none absolute -right-[20%] -top-1/2 h-[800px] w-[800px] rounded-full"
+    style="background: radial-gradient(circle, rgba(152,202,192,0.22), transparent 60%);"
+  >
+  </div>
+  <div
+    class="pointer-events-none absolute -bottom-1/2 -left-[10%] h-[600px] w-[600px] rounded-full"
+    style="background: radial-gradient(circle, rgba(152,202,192,0.12), transparent 60%);"
+  >
+  </div>
+
+  <div class="wrap relative grid grid-cols-1 items-center gap-20 lg:grid-cols-[7fr_5fr]">
+    <div>
+      <div class="eyebrow !text-evo-mint before:!bg-evo-mint">Conversemos</div>
+      <h2 class="m-0 text-[clamp(48px,6vw,96px)] font-extralight leading-[0.98] tracking-[-0.03em] text-white">
+        Tu próxima sonrisa<br />empieza con un <em class="font-extralight not-italic text-evo-mint">"hola".</em>
+      </h2>
+      <p class="lead mt-8 max-w-[540px] !text-white/70">
+        Escríbenos por WhatsApp y agendamos tu primera evaluación. Sin compromiso, sin presión, sin
+        sorpresas en el costo. Te respondemos en minutos, de lunes a sábado.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-3.5">
+        <Button href={SITE.whatsappUrl} variant="p" arrow external>Escribir por WhatsApp</Button>
+        <a
+          href={SITE.phoneHref}
+          class="btn border border-white/20 bg-transparent text-white hover:bg-white/10"
+        >
+          Llamar al studio
+        </a>
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col gap-[18px] rounded-[28px] border border-white/[0.12] bg-white/5 p-9 backdrop-blur-xl"
+    >
+      <div class="text-[11px] font-medium uppercase tracking-[0.24em] text-evo-mint">Reserva express</div>
+      <div class="text-2xl font-light leading-snug tracking-[-0.015em] text-white">
+        Evaluación + limpieza<br />desde S/ 80
+      </div>
+      {
+        perks.map((p) => (
+          <div class="flex items-center gap-3.5 border-t border-white/10 py-3.5 text-[15px] text-white/85">
+            <span class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-evo-mint/15 text-evo-mint">
+              <Icon name={p.icon} size={14} strokeWidth={2} />
+            </span>
+            {p.label}
+          </div>
+        ))
+      }
+      <Button href={SITE.whatsappUrl} variant="w" class="mt-2 justify-center" external>Reservar ahora</Button>
+    </div>
+  </div>
+</section>
